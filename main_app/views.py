@@ -3,7 +3,10 @@ from django.views.generic import TemplateView, ListView
 
 from rest_framework import generics
 
-from main_app.serializers import LocationSerializer, CategorySerializer, ListingSerializer, CreateUserSerializer
+from django.contrib.auth.models import User
+
+
+from main_app.serializers import LocationSerializer, CategorySerializer, ListingSerializer, CreateUserSerializer, UserSerializer
 from main_app.models import Location, Category, Listing, Profile
 
 
@@ -43,3 +46,13 @@ class ListingDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 class UserRegisterAPIView(generics.CreateAPIView):
     serializer_class = CreateUserSerializer
+
+
+class UserListAPIView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

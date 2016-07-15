@@ -24,6 +24,13 @@ class ListingSerializer(serializers.ModelSerializer):
         fields = ('id', 'item', 'description', 'photo', 'price', 'seller', 'category')
 
 
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'email', 'username')
+
+
 class CreateUserSerializer(serializers.ModelSerializer):
 
     class Meta:
