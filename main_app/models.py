@@ -64,9 +64,9 @@ def create_user_profile(**kwargs):
         Profile.objects.create(user=instance)  # hooks profile to user
 
 
-@receiver(post_save, sender='auth.User')
-def create_token(**kwargs): # a shortcut pass in
-    created = kwargs.get("created")  # boilerplate
-    instance = kwargs.get("instance")  # boilerplate
-    if created:
-        Token.objects.create(user=instance)  # yep. standard.
+# @receiver(post_save, sender='auth.User')
+# def create_token(**kwargs): # a shortcut pass in
+#     created = kwargs.get("created")  # boilerplate
+#     instance = kwargs.get("instance")  # boilerplate
+#     if created:
+#         Token.objects.create(user=instance)  # yep. standard.

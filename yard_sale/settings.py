@@ -126,3 +126,11 @@ STATIC_ROOT = BASE_DIR + '/static'  # for css
 
 MEDIA_URL = '/media/'  # for photos
 MEDIA_ROOT = BASE_DIR  # for photos
+
+USE_THOUSAND_SEPARATOR = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
