@@ -4,13 +4,13 @@
     <head>
         <meta charset="utf-8">
         <title>Kirby Yard Sale</title>
-        <link rel="stylesheet" href="{% static 'dist/css/app.css' %}">
+        <link rel="stylesheet" href="{% static 'main_app/dist/css/app.css' %}">
     </head>
     <body>
       <h1>Yard sale! </h1>
       <div id="container"></div>
       {% csrf_token %}
 
-      <script src="{% static 'dist/js/bundle.js' %}"></script>
+      <script src="{% static 'main_app/dist/js/bundle.js' %}"></script>
     </body>
 </html>
