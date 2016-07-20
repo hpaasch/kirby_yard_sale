@@ -24,15 +24,16 @@ var LocationComponent = React.createClass({
     var locationList = locations.map(function(location, index){
       console.log("IS THIS HAPPENING?")
       return(
-        <li key={index}>{location.get('city')}</li>
+        <option key={index} value={location.get('city')}>{location.get('city')}</option>
       );
     });
     return(
       <div>
-        <h1>Locations</h1>
-        <ul>
-          {locationList}
-        </ul>
+        <label>City</label>
+          <select className="browser-default">
+            <option value="">Choose your city</option>
+            {locationList}
+          </select>
       </div>
     )
   }

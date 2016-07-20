@@ -128,7 +128,7 @@ MEDIA_URL = '/media/'  # for photos
 MEDIA_ROOT = BASE_DIR  # for photos
 
 USE_THOUSAND_SEPARATOR = True
-
+LOGIN_REDIRECT_URL = "/#profile/"
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',

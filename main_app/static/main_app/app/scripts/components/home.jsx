@@ -3,9 +3,6 @@ var router = require('../router');
 
 
 var HomeComponent = React.createClass({
-  handleLocation: function(){
-    this.props.router.navigate('#locations/', {trigger: true});
-  },
   handleSignUp: function(){
     this.props.router.navigate('#signup/', {trigger: true});
   },
@@ -20,10 +17,9 @@ var HomeComponent = React.createClass({
           </div>
         </header>
         <div className="nav col s12">
-          <dl className="col s5 offset-s3 navbar">
-            <dd><button className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleLocation}>Locations</button></dd>
-            <dd><button className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleSignUp}>Sign Up</button></dd>
-            <dd><button className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleLogin}>Login</button></dd>
+          <dl className="col s3 offset-s4 navbar">
+            <dd><button id="submit" className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleSignUp}>Sign Up</button></dd>
+            <dd><button  id="submit" className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleLogin}>Login</button></dd>
           </dl>
         </div>
       </div>
