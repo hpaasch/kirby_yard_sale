@@ -5,7 +5,7 @@ from django.conf import settings  # for photos
 # from rest_framework.authtoken import views
 
 
-from main_app.views import IndexView, LocationListAPIView, LocationDetailAPIView, CategoryListAPIView, CategoryDetailAPIView, ListingListAPIView, ListingDetailAPIView, UserRegisterAPIView, UserListAPIView, UserDetailAPIView
+from main_app.views import IndexView, LocationListAPIView, LocationDetailAPIView, CategoryListAPIView, CategoryDetailAPIView, ListingListAPIView, ListingDetailAPIView, UserRegisterAPIView, UserListAPIView, UserDetailAPIView, ProfileListAPIView, ProfileDetailAPIView
 
 
 urlpatterns = [
@@ -22,5 +22,7 @@ urlpatterns = [
     url(r'api/listings/(?P<pk>\d+)/$', ListingDetailAPIView.as_view(), name='listing_detail_api_view'),
     url(r'api/users/$', UserListAPIView.as_view(), name='user_list_api_view'),
     url(r'api/users/(?P<pk>\d+)/$', UserDetailAPIView.as_view(), name='user_detail_api_view'),
+    url(r'api/profile/(?P<pk>\d+)/$', ProfileListAPIView.as_view(), name='profile_list_api_view'),
+    url(r'api/profile/update/(?P<pk>\d+)/$', ProfileDetailAPIView.as_view(), name='profile_detail_api_view'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

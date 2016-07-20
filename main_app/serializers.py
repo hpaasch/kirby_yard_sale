@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from main_app.models import Location, Category, Listing
+from main_app.models import Location, Category, Listing, Profile
 from django.contrib.auth.models import User
 
 
@@ -22,6 +22,13 @@ class ListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Listing
         fields = ('id', 'item', 'description', 'photo', 'price', 'seller', 'category')
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Profile
+        fields = ('first_name', 'last_name', 'email_address', 'location', 'street_address', 'phone', 'photo')
 
 
 class UserSerializer(serializers.ModelSerializer):
