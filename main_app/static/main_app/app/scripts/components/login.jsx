@@ -1,5 +1,6 @@
 var React = require('react');
 var router = require('../router');
+var ProfileCollection = require('../models/profile').ProfileCollection;
 
 
 var LoginComponent = React.createClass({

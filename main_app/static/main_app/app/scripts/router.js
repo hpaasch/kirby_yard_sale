@@ -24,7 +24,7 @@ var TheAppRouter = Backbone.Router.extend({
     'yardsale/': 'yardsale',
     'sales/': 'sales',
     'cart/': 'cart',
-    'create/': 'create'
+    'createprofile/': 'createprofile'
   },
 index: function(){
   var self = this;
@@ -78,7 +78,7 @@ cart: function(){
     document.getElementById('container')
   );
 },
-create: function(){
+createprofile: function(){
   ReactDOM.render(
     React.createElement(CreateComponent),
     document.getElementById('container')
