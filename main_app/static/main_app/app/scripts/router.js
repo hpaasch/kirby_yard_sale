@@ -10,6 +10,7 @@ var ProfileComponent = require('./components/profile.jsx');
 var YardSaleComponent = require('./components/sale.jsx');
 var SalesComponent = require('./components/sales.jsx');
 var CartComponent = require('./components/cart.jsx');
+var HopeComponent = require('./components/hope.jsx');
 var CreateComponent = require('./components/create.jsx');
 
 
@@ -24,7 +25,8 @@ var TheAppRouter = Backbone.Router.extend({
     'yardsale/': 'yardsale',
     'sales/': 'sales',
     'cart/': 'cart',
-    'createprofile/': 'createprofile'
+    'createprofile/': 'createprofile',
+    'hope/': 'hope'
   },
 index: function(){
   var self = this;
@@ -81,6 +83,12 @@ cart: function(){
 createprofile: function(){
   ReactDOM.render(
     React.createElement(CreateComponent),
+    document.getElementById('container')
+  );
+},
+hope: function(){
+  ReactDOM.render(
+    React.createElement(HopeComponent),
     document.getElementById('container')
   );
 }

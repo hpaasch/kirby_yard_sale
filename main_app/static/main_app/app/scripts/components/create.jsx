@@ -1,6 +1,8 @@
 var React = require('react');
 var router = require('../router');
 var LocationComponent = require('../components/locations.jsx');
+var CategoryComponent = require('../components/categories.jsx');
+
 
 
 
@@ -17,6 +19,7 @@ var CreateComponent = React.createClass({
                 </div>
               </div>
              <LocationComponent />
+             <CategoryComponent />
              <button className="waves-effect waves-light btn #7cb342 light-green darken-1">Submit</button>
           </form>
       </div>

@@ -6,6 +6,18 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 
+// colors
+$darkblue: #54819C;
+$blue: #669AB6;
+$lightblue: #7AC4DD;
+$gray: #666769;
+$black: #212121;
+
+
+
+
+// --------------------------------------
+
 *,
 *::before,
 *::after {
@@ -16,7 +28,22 @@ img {
   max-width: 100%;
 }
 
+body{
+font-family: 'Dosis', sans-serif;
+}
+
+// HOME PAGE
+// header
+// -----------------------------------------------------
+
+
+.logo{
+  margin-top: 220px;
+}
+
 dl.navbar{
+  margin: 0 auto;
+  font-family: 'Dosis', sans-serif;
   dd{
     display: inline;
     padding-right: 20px;
@@ -24,17 +51,106 @@ dl.navbar{
 }
 
 header.head{
-  height: 400px;
+  height: 500px;
+  background-image: url('/static/main_app/app/images/background-wave2.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .nav{
-  background-color: #212121;
+  background-color: $black;
+  h5{
+    color: white;
+    text-align: center;
+  }
 }
 
-#title{
-  padding: 20px;
+.material-icons{
+  transform: rotate(90deg);
 }
 
 #submit{
+ background-color: white;
+ color: black;
+ display: inline-block;
+ margin: 30px auto 20px auto;
+ width: 200px;
+ font-family: 'Dosis', sans-serif;
+}
+
+#submit2{
+  background-color: white;
+  color: black;
+  text-align: center;
+  width: 100px;
+  padding-left: 25px;
+  margin-right: 460px;
+  margin-top: 24px;
+  font-family: 'Dosis', sans-serif;
+}
+
+#submit3{
+  background-color: white;
+  color: black;
+  text-align: center;
+  width: 100px;
+  padding-left: 25px;
+  margin-right: 460px;
+  margin-top: 28px;
+  font-family: 'Dosis', sans-serif;
+}
+
+#submit2:hover{
+  background-color: $lightblue;
+  color: white;
+}
+
+#submit3:hover{
+  background-color: $lightblue;
+  color: white;
+}
+
+#submit:hover{
+  background-color: $lightblue;
+  color: white;
+}
+
+#title{
+  background-color: $blue;
+  padding: 20px;
+  font-family: 'Dosis', sans-serif;
+}
+
+#submitbtn{
+  background-color: $gray;
+  font-family: 'Dosis', sans-serif;
+}
+
+div.col.s12{
+  padding: 0;
+}
+
+.home2{
+  padding-top: 180px;
+  height: 450px;
+  background-color: $darkblue;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+}
+
+#category{
+  margin-bottom: 20px;
   margin-top: 20px;
+  font-family: 'Dosis', sans-serif;
+}
+
+#white{
+  color: white;
+}
+
+p{
+  font-size: 24px;
 }

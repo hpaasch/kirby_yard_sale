@@ -1,27 +1,65 @@
 var React = require('react');
 var router = require('../router');
+var User = require('../models/user').User;
 
 var SignUpComponent = React.createClass({
+  getInitialState: function(){
+    return {
+      'email_address': '',
+       'password': ''
+     }
+  },
+  handleSubmit: function(e){
+    e.preventDefault();
+    var self = this;
+    var email_address = this.state.email_address;
+    var password = this.state.password;
+
+    var newUser = new User();
+    console.log("PATCHED!");
+
+    newUser.register(email_address, password, function(){
+      self.props.router.navigate('#login/', {trigger: true});
+    });
+  },
+  handleNameChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'email_address': e.target.value
+    });
+  },
+  handlePasswordChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'password': e.target.value
+    });
+  },
   render: function(){
     return(
       <div className="row">
-        <h3 id="title" className=" white-text card-panel light-green darken-1 col s8 offset-s2">Sign Up</h3>
-         <form className="col s8 offset-s2" action="/api/register/" method="post">
+        <h3 id="title" className="bluepageheader white-text card-panel col s8 offset-s2">Sign Up</h3>
+         <form className="col s8 offset-s2" onSubmit={this.handleSubmit}>
             <div className="row">
                <div className="input-field col s6">
-                  <input id="name" name="username" type="text" />
-                  <label htmlFor="name">Username</label>
-               </div>
-               <div className="input-field col s6">
-                  <input id="email" name="email" type="text" />
-                  <label htmlFor="name">Email</label>
+                 <label htmlFor="email_address">email_address</label>
+                  <input
+                    id="email_address"
+                    value={this.state.email_address}
+                    onChange={this.handleNameChange}
+                    name="email_address"
+                    type="text" />
                </div>
                <div className="input-field col s6">
                   <label htmlFor="password">Password</label>
-                  <input id="password" name="password" type="password" />
+                  <input
+                    id="password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                    name="password"
+                    type="password" />
                </div>
             </div>
-            <input type="submit" value="submit"/>
+            <button id="submitbtn" className="waves-effect waves-light btn" type="submit">Sign Up</button>
          </form>
        </div>
     )

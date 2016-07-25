@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_app',
     'rest_framework',
-
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -54,6 +54,8 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'yard_sale.urls'
+
+AUTH_USER_MODEL = "account.CustomUser"
 
 TEMPLATES = [
     {
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'yard_sale.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db2.sqlite3'),
     }
 }
 

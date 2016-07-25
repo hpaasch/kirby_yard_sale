@@ -5,6 +5,13 @@ var ProfileCollection = require('../models/profile').ProfileCollection;
 
 
 var ProfileComponent = React.createClass({
+  // componentWillMount: function(){
+  //   var newUser = new User();
+  //
+  //   // this.setState({
+  //   //   'me': newUser.currentuser()
+  //   // });
+  // },
   handleYardSale: function(e){
     e.preventDefault();
     this.props.router.navigate('#yardsale/', {trigger: true});
@@ -25,19 +32,32 @@ var ProfileComponent = React.createClass({
     e.preventDefault();
     this.props.router.navigate('#create/', {trigger: true});
   },
+  handlePDP: function(e){
+    e.preventDefault();
+    this.props.router.navigate('#hope/', {trigger: true});
+  },
+  handleGoHome: function(e){
+    e.preventDefault();
+    this.props.router.navigate('', {trigger: true});
+  },
   render: function(){
     return(
       <div className="row">
-        <h3 id="title" className=" white-text card-panel light-green darken-1 col s8 offset-s2">Your Profile</h3>
+        <h3 id="title" className=" white-text card-panel col s8 offset-s2">Your Profile</h3>
         <div className="col s8 offset-s2">
-          <button className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleCreateProfile}>Create Profile</button>
-          <button className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleCreateYardSale}>Create YardSale</button>
-          <button className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleYardSale}>YardSale</button>
-          <button className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleSales}>Your Sales</button>
-          <button className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleCart}>Your Cart</button>
+          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleCreateProfile}>Update Profile</button>
+          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleCreateYardSale}>Create YardSale</button>
+          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleYardSale}>YardSale</button>
+          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleSales}>Your Sales</button>
+          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleCart}>Your Cart</button>
+          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handlePDP}>PDP</button>
+
         </div>
         <div className="col s8 offset-s2">
           <ProfileList />
+        </div>
+        <div className="col s8 offset-s2">
+          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleGoHome}>Home</button>
         </div>
       </div>
     )
@@ -69,7 +89,7 @@ console.log("IS THIS HAPPENING?")
     var profileList = profiles.map(function(profile, index){
       console.log("IS THIS HAPPENING?")
       return(
-        <li key={index}>{profile.get('first_name')}</li>
+        <li key={index}>{profile.get('first_name') + ' '}{profile.get('last_name')}</li>
       );
     });
     return(

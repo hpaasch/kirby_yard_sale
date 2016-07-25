@@ -1,6 +1,7 @@
 var React = require('react');
 var router = require('../router');
-
+var LocationComponent = require('../components/locations.jsx');
+var CategoryComponent = require('../components/categories.jsx');
 
 var HomeComponent = React.createClass({
   handleSignUp: function(){
@@ -13,15 +14,27 @@ var HomeComponent = React.createClass({
     return(
       <div className="row">
         <header className="head">
-          <div className="col s8 offset-s3"><h2>yardsale</h2>
+          <div className="logo col s4 offset-s4">
+            <img src="static/main_app/app/images/word-white-sail.png" />
           </div>
         </header>
         <div className="nav col s12">
-          <dl className="col s3 offset-s4 navbar">
-            <dd><button id="submit" className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleSignUp}>Sign Up</button></dd>
-            <dd><button  id="submit" className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleLogin}>Login</button></dd>
+          <dl className="col s4 offset-s4 navbar">
+            <dd><button id="submit" className="waves-effect waves-light btn" onClick={this.handleSignUp}>Sign Up</button></dd>
+            <dd><button  id="submit" className="waves-effect waves-light btn" onClick={this.handleLogin}>Login</button></dd>
           </dl>
         </div>
+        <section className="home2">
+          <p className="col s6 offset-s3" id="white">Search for what youre looking for by category or by location: </p>
+          <div>
+            <CategoryComponent />
+            <button id="submit2" className="waves-effect waves-light btn">Search</button>
+          </div>
+          <div>
+            <LocationComponent />
+            <button id="submit3" className="waves-effect waves-light btn">Search</button>
+          </div>
+        </section>
       </div>
     )
   }

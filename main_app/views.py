@@ -3,11 +3,14 @@ from django.views.generic import TemplateView, ListView
 
 from rest_framework import generics
 
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
-from main_app.serializers import LocationSerializer, CategorySerializer, ListingSerializer, CreateUserSerializer, ProfileSerializer, UserSerializer
-from main_app.models import Location, Category, Listing, Profile
+from main_app.serializers import LocationSerializer, CategorySerializer, ListingSerializer, CreateUserSerializer, UserSerializer
+from main_app.models import Location, Category, Listing #, Profile
 
 
 class IndexView(TemplateView):
@@ -58,11 +61,11 @@ class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
 
 
-class ProfileListAPIView(generics.ListAPIView):
-    queryset = Profile.objects.all()
-    serializer_class = ProfileSerializer
-
-
-class ProfileDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Profile.objects.all()
-    serializer_class = ProfileSerializer
+# class ProfileListAPIView(generics.ListAPIView):
+#     queryset = Profile.objects.all()
+#     serializer_class = ProfileSerializer
+#
+#
+# class ProfileDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Profile.objects.all()
+#     serializer_class = ProfileSerializer

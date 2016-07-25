@@ -22,15 +22,13 @@ var LocationComponent = React.createClass({
     var locations = this.state.listOfLocations;
 
     var locationList = locations.map(function(location, index){
-      console.log("IS THIS HAPPENING?")
       return(
         <option key={index} value={location.get('city')}>{location.get('city')}</option>
       );
     });
     return(
       <div>
-        <label>City</label>
-          <select className="browser-default">
+          <select className="browser-default col s3 offset-s4">
             <option value="">Choose your city</option>
             {locationList}
           </select>
