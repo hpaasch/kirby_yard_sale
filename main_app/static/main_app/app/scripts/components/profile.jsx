@@ -1,6 +1,6 @@
 var React = require('react');
 var router = require('../router');
-var ProfileCollection = require('../models/profile').ProfileCollection;
+var $ = require('jquery');
 
 
 
@@ -54,7 +54,6 @@ var ProfileComponent = React.createClass({
 
         </div>
         <div className="col s8 offset-s2">
-          <ProfileList />
         </div>
         <div className="col s8 offset-s2">
           <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleGoHome}>Home</button>
@@ -64,42 +63,5 @@ var ProfileComponent = React.createClass({
   }
 });
 
-var ProfileList = React.createClass({
-  getInitialState: function(){
-    console.log("IS THIS HAPPENING?")
-
-    return {
-      listOfProfiles: []
-    }
-  },
-  componentWillMount: function(){
-    console.log("IS THIS HAPPENING?")
-    var listOfProfiles = new ProfileCollection();
-
-    listOfProfiles.fetch().done(() => {
-      this.setState({
-        'listOfProfiles': listOfProfiles
-      });
-    });
-
-  },
-  render: function(){
-    var profiles = this.state.listOfProfiles;
-console.log("IS THIS HAPPENING?")
-    var profileList = profiles.map(function(profile, index){
-      console.log("IS THIS HAPPENING?")
-      return(
-        <li key={index}>{profile.get('first_name') + ' '}{profile.get('last_name')}</li>
-      );
-    });
-    return(
-      <div>
-        <ul>
-          {profileList}
-        </ul>
-      </div>
-    )
-  }
-});
 
 module.exports = ProfileComponent;

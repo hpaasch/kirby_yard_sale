@@ -14,6 +14,7 @@ from main_app.views import (IndexView, LocationListAPIView,
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('django.contrib.auth.urls')),
+    # url(r'^accounts/', include('authtools.urls')),
     url(r'^$', IndexView.as_view(), name='index_view'),
 
     url(r'api/register/$', UserRegisterAPIView.as_view(), name='user_register_api_view'),

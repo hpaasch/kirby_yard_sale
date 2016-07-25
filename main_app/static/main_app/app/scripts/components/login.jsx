@@ -7,25 +7,28 @@ var User = require('../models/user').User;
 var LoginComponent = React.createClass({
   getInitialState: function(){
     return {
-      'username': '',
-       'password': ''
+      'email_address': '',
+       'password': '',
+       'username': ''
      }
   },
   handleSubmit: function(e){
     e.preventDefault();
     var self = this;
-    var email_address = this.state.username;
+    var email_address = this.state.email_address;
     var password = this.state.password;
+    var username = this.state.email_address;
+
 
     var activeUser = new User();
     activeUser.login(email_address, password, function(){
-      self.props.router.navigate('#login/', {trigger: true});
+      self.props.router.navigate('#profile/', {trigger: true});
     });
   },
   handleNameChange: function(e){
     e.preventDefault();
     this.setState({
-      'username': e.target.value
+      'email_address': e.target.value
     });
   },
   handlePasswordChange: function(e){
@@ -41,12 +44,12 @@ var LoginComponent = React.createClass({
          <form className="col s8 offset-s2" onSubmit={this.handleSubmit}>
             <div className="row">
                <div className="input-field col s6">
-                 <label htmlFor="name">Username</label>
+                 <label htmlFor="email_address">email_address</label>
                   <input
-                    id="name"
-                    value={this.state.username}
+                    id="email_address"
+                    value={this.state.email_address}
                     onChange={this.handleNameChange}
-                    name="username"
+                    name="email_address"
                     type="text" />
                </div>
                <div className="input-field col s6">

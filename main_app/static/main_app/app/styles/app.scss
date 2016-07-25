@@ -141,6 +141,16 @@ div.col.s12{
   font-family: 'Dosis', sans-serif;
 }
 
+.home3{
+  padding-top: 180px;
+  height: 450px;
+  background-color: $gray;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+}
+
 #category{
   margin-bottom: 20px;
   margin-top: 20px;
@@ -153,4 +163,70 @@ div.col.s12{
 
 p{
   font-size: 24px;
+}
+
+.overlay {
+  position: relative;
+}
+
+.overlay h2 {
+  position: absolute;
+   top: 248px;
+   left: 17px;
+   width: 100%;
+   margin: -6px 0px 0px -1px;
+   letter-spacing: 1.09px;
+   line-height: 37px;
+
+}
+
+.overlay:after {
+  position: absolute;
+  content:"";
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+}
+
+.overlay:hover:after {
+  opacity: 1;
+  background-color: rgba(82, 129, 157, 0.5);
+  height: 317px;
+}
+
+div.col.s4{
+  padding: 0;
+}
+
+section.col.s12{
+  padding: 0;
+}
+
+section.footer{
+  height: 100px;
+  background-color: white;
+  p{
+    margin-left: 100px;
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+div#container{
+  margin-bottom: 0;
+}
+
+dd.social.col.s4{
+  padding: 90px;
+}
+
+dl.social{
+  display: inline;
+  padding: 20px;
+}
+
+.icon{
+  height: 40px;
 }
