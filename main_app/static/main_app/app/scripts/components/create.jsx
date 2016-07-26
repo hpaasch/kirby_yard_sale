@@ -3,6 +3,8 @@ var router = require('../router');
 var LocationComponent = require('../components/locations.jsx');
 var CategoryComponent = require('../components/categories.jsx');
 var Listing = require('../models/listing').Listing;
+var User = require('../models/user').User;
+
 
 
 
@@ -12,8 +14,9 @@ var CreateComponent = React.createClass({
     return {
       'item': '',
        'description': '',
-       'price': ''
-     }
+       'price': '',
+       'photo': ''
+    }
   },
   handleSubmit: function(e){
     e.preventDefault();
@@ -21,10 +24,12 @@ var CreateComponent = React.createClass({
     var item = this.state.item;
     var description = this.state.description;
     var price = this.state.price;
+    var photo = this.state.photo;
+
 
 
     var newItem = new Listing();
-    newItem.make(item, description, price, function(){
+    newItem.make(item, description, price, photo, function(){
       self.props.router.navigate('#sales/', {trigger: true});
     });
   },
@@ -46,7 +51,16 @@ var CreateComponent = React.createClass({
       'price': e.target.value
     });
   },
+  handlePhotoChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'photo': e.target.value
+    });
+  },
   render: function(){
+    var me = this.state.me;
+    console.warn(this.state.me)
+
     return(
       <div className="row">
         <h3 id="title" className=" white-text card-panel light-green darken-1 col s8 offset-s2">create listing</h3>
@@ -78,6 +92,16 @@ var CreateComponent = React.createClass({
                      onChange={this.handlePriceChange}
                      type="text" />
                    <label htmlFor="price">Price</label>
+                </div>
+                <div className="input-field col s6">
+                  <label htmlFor="photo">Photo</label><br />
+                  <br />
+                   <input
+                     name="photo"
+                     id="photo"
+                     value={this.state.photo}
+                     onChange={this.handlePhotoChange}
+                     type="file" />
                 </div>
               </div>
              <button className="waves-effect waves-light btn #7cb342 light-green darken-1">Submit</button>

@@ -13,17 +13,14 @@ var User = Backbone.Model.extend({
       username: email_address,
       password: password,
       last_name: last_name,
-      first_name: first_name
+      first_name: first_name,
     };
 
     jQuery.post('/api/register/', userData).done(callback);
   }
 });
 
-var me = new User();
-me.fetch().done(function functionName() {
 
-});
 module.exports = {
   'User': User
 };

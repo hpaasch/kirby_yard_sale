@@ -125,6 +125,7 @@ header.head{
 #submitbtn{
   background-color: $gray;
   font-family: 'Dosis', sans-serif;
+  width: 230px;
 }
 
 div.col.s12{
@@ -229,4 +230,49 @@ dl.social{
 
 .icon{
   height: 40px;
+}
+
+div#list2{
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  img {
+    border-radius: 5%;
+  }
+}
+
+.profilelinks{
+  margin-top: 20px;
+}
+
+.yardsale{
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 300px;
+  margin: 15px;
+  padding-left: 20px;
+  img{
+    width: 100%;
+  }
+}
+
+.sales{
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 300px;
+  margin: 15px;
+}
+
+.cart{
+  border: 1px solid black;
+  margin: 15px;
+  border-radius: 10px;
+  height: 300px;
+}
+
+.item{
+  border: 1px solid black;
+  margin: 15px;
+  border-radius: 10px;
+  height: 270px;
 }

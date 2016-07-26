@@ -11,7 +11,7 @@ var SignUpComponent = React.createClass({
        'password': '',
        'username': '',
        'first_name': '',
-       'last_name': ''
+       'last_name': '',
      }
   },
   handleSubmit: function(e){
@@ -22,6 +22,7 @@ var SignUpComponent = React.createClass({
     var password = this.state.password;
     var first_name = this.state.first_name;
     var last_name = this.state.last_name;
+
 
     var newUser = new User();
     console.log(newUser);
