@@ -2,24 +2,84 @@ var React = require('react');
 var router = require('../router');
 var LocationComponent = require('../components/locations.jsx');
 var CategoryComponent = require('../components/categories.jsx');
+var Listing = require('../models/listing').Listing;
 
 
 
 
 var CreateComponent = React.createClass({
+  getInitialState: function(){
+    return {
+      'item': '',
+       'description': '',
+       'price': ''
+     }
+  },
+  handleSubmit: function(e){
+    e.preventDefault();
+    var self = this;
+    var item = this.state.item;
+    var description = this.state.description;
+    var price = this.state.price;
+
+
+    var newItem = new Listing();
+    newItem.make(item, description, price, function(){
+      self.props.router.navigate('#sales/', {trigger: true});
+    });
+  },
+  handleItemChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'item': e.target.value
+    });
+  },
+  handleDescriptionChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'description': e.target.value
+    });
+  },
+  handlePriceChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'price': e.target.value
+    });
+  },
   render: function(){
     return(
       <div className="row">
-        <h3 id="title" className=" white-text card-panel light-green darken-1 col s8 offset-s2">Update Profile</h3>
-          <form className="col s8 offset-s2" action="/api/profile/{id}" method="post">
+        <h3 id="title" className=" white-text card-panel light-green darken-1 col s8 offset-s2">create listing</h3>
+          <form className="col s8 offset-s2" onSubmit={this.handleSubmit}>
              <div className="row">
                 <div className="input-field col s6">
-                   <input name="first_name" id="name" type="text" />
-                   <label htmlFor="name">First Name</label>
+                   <input
+                     name="item"
+                     id="item"
+                     value={this.state.item}
+                     onChange={this.handleItemChange}
+                     type="text" />
+                   <label htmlFor="item">Item Name</label>
+                </div>
+                <div className="input-field col s6">
+                   <input
+                     name="description"
+                     id="description"
+                     value={this.state.description}
+                     onChange={this.handleDescriptionChange}
+                     type="text" />
+                   <label htmlFor="description">Description</label>
+                </div>
+                <div className="input-field col s6">
+                   <input
+                     name="price"
+                     id="price"
+                     value={this.state.price}
+                     onChange={this.handlePriceChange}
+                     type="text" />
+                   <label htmlFor="price">Price</label>
                 </div>
               </div>
-             <LocationComponent />
-             <CategoryComponent />
              <button className="waves-effect waves-light btn #7cb342 light-green darken-1">Submit</button>
           </form>
       </div>

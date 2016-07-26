@@ -24,7 +24,7 @@ var SignUpComponent = React.createClass({
     var last_name = this.state.last_name;
 
     var newUser = new User();
-    console.log("PATCHED!");
+    console.log(newUser);
 
     newUser.register(email_address, password, first_name, last_name, username, function(){
       self.props.router.navigate('#login/', {trigger: true});

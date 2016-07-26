@@ -61,6 +61,15 @@ class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
 
 
+class CurrentUserAPIView(generics.RetrieveUpdateAPIView):
+    model = User
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user;
+
+
+
 # class ProfileListAPIView(generics.ListAPIView):
 #     queryset = Profile.objects.all()
 #     serializer_class = ProfileSerializer

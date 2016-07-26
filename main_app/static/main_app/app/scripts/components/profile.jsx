@@ -44,15 +44,13 @@ var ProfileComponent = React.createClass({
     return(
       <div className="row">
         <h3 id="title" className=" white-text card-panel col s8 offset-s2">Your Profile</h3>
-        <div className="col s8 offset-s2">
-          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleCreateProfile}>Update Profile</button>
-          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleCreateYardSale}>Create YardSale</button>
-          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleYardSale}>YardSale</button>
-          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleSales}>Your Sales</button>
-          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleCart}>Your Cart</button>
-          <button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handlePDP}>PDP</button>
-
-        </div>
+        <dl className="col s8 offset-s2">
+          <dd><button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleCreateProfile}>Update Profile</button></dd>
+          <dd><button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleCreateYardSale}>Create YardSale</button></dd>
+          <dd><button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleYardSale}>YardSale</button></dd>
+          <dd><button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleSales}>Your Sales</button></dd>
+          <dd><button id="submitbtn" className="waves-effect waves-light btn" onClick={this.handleCart}>Your Cart</button></dd>
+        </dl>
         <div className="col s8 offset-s2">
         </div>
         <div className="col s8 offset-s2">
