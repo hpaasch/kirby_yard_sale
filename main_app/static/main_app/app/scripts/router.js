@@ -9,7 +9,8 @@ var HomeComponent = require('./components/home.jsx');
 var LocationComponent = require('./components/locations.jsx');
 var SignUpComponent = require('./components/signup.jsx');
 var LoginComponent = require('./components/login.jsx');
-var ProfileComponent = require('./components/profile.jsx');
+var ProfileComponent = require('./components/profile.jsx').ProfileComponent;
+var ListingComponent = require('./components/profile.jsx').ListingComponent;
 var YardSaleComponent = require('./components/sale.jsx');
 var SalesComponent = require('./components/sales.jsx');
 var CartComponent = require('./components/cart.jsx');
@@ -29,20 +30,20 @@ var TheAppRouter = Backbone.Router.extend({
     'sales/': 'sales',
     'cart/': 'cart',
     'createprofile/': 'createprofile',
-    'hope/': 'hope'
+    'listing/': 'listing'
   },
   initialize: function(){
     var csrftoken = csrf.getCookie('csrftoken');
-    console.log('csrftoken', csrftoken);
+    // console.log('csrftoken', csrftoken);
 
     $.ajaxSetup({
       beforeSend: function(xhr, settings) {
         if (!csrf.csrfSafeMethod(settings.type) && !this.crossDomain) {
           xhr.setRequestHeader("X-CSRFToken", csrftoken);
         } else {
-          console.warn("CSRF Token Not Set!");
-          console.log('safe method', !csrf.csrfSafeMethod(settings.type));
-          console.log('cross domain', !this.crossDomain);
+          // console.warn("CSRF Token Not Set!");
+          // console.log('safe method', !csrf.csrfSafeMethod(settings.type));
+          // console.log('cross domain', !this.crossDomain);
         }
       }
     });
@@ -106,9 +107,9 @@ var TheAppRouter = Backbone.Router.extend({
       document.getElementById('container')
     );
   },
-  hope: function(){
+  listing: function(){
     ReactDOM.render(
-      React.createElement(HopeComponent),
+      React.createElement(ListingComponent),
       document.getElementById('container')
     );
   }

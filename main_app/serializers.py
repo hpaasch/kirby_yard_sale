@@ -48,14 +48,14 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'email_address', 'first_name', 'last_name', 'street_address')
+        fields = ('id', 'email_address', 'first_name', 'last_name', 'street_address', 'photo')
 
 
 class CreateUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('email_address', 'password', 'first_name', 'last_name')
+        fields = ('email_address', 'password', 'first_name', 'last_name', 'photo')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -63,6 +63,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
             email_address=validated_data['email_address'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
+            photo=validated_data['photo'],
         )
         user.set_password(validated_data['password'])
         user.save()

@@ -22,7 +22,6 @@ var CategoryComponent = React.createClass({
     var categories = this.state.listOfCategories;
 
     var categoriesList = categories.map(function(category, index){
-      console.log("IS THIS HAPPENING?")
       return(
         <option key={index} name="category" value={category.get('category')}>{category.get('category')}</option>
       );
