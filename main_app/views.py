@@ -9,8 +9,9 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-from main_app.serializers import LocationSerializer, CategorySerializer, ListingSerializer, CreateUserSerializer, UserSerializer
-from main_app.models import Location, Category, Listing #, Profile
+from main_app.serializers import (LocationSerializer, CategorySerializer,
+    ListingSerializer, CreateUserSerializer, UserSerializer, SpecialSaleSerializer)
+from main_app.models import Location, Category, Listing, SpecialSale #, Profile
 
 
 class IndexView(TemplateView):
@@ -48,6 +49,19 @@ class ListingListAPIView(generics.ListCreateAPIView):
 class ListingDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Listing.objects.all()
     serializer_class = ListingSerializer
+
+
+class SpecialSaleListAPIView(generics.ListCreateAPIView):
+    queryset = SpecialSale.objects.all()
+    serializer_class = SpecialSaleSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(seller=self.request.user)
+
+
+class SpecialSaleDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SpecialSale.objects.all()
+    serializer_class = SpecialSaleSerializer
 
 
 class UserRegisterAPIView(generics.CreateAPIView):

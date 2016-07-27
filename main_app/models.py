@@ -7,6 +7,12 @@ from django.dispatch import receiver  # goes with post_save and other signals
 from rest_framework.authtoken.models import Token
 
 
+EXTRA_FUN = 'Extra fun'
+PERSONAL_NEED = 'Personal need'
+BIG_TRIP = 'Big trip'
+HELP_OTHERS = 'Help others'
+OTHER = 'Other'
+
 class Location(models.Model):
     city = models.CharField(max_length=30)
 
@@ -33,6 +39,33 @@ class Listing(models.Model):
     seller = models.ForeignKey(settings.AUTH_USER_MODEL)
     created = models.DateTimeField(auto_now_add=True)
     paid_status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.item
+
+    class Meta:
+        ordering = ['-created']
+
+
+class SpecialSale(models.Model):
+    CHOICES = (
+        (EXTRA_FUN, 'Extra fun'),
+        (PERSONAL_NEED, 'Personal need'),
+        (BIG_TRIP, 'Big trip'),
+        (HELP_OTHERS, 'Help others'),
+        (OTHER, 'Other'),
+        )
+    item = models.CharField(max_length=40)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    photo = models.ImageField(upload_to='listing_photos', verbose_name='Upload a photo', null=True, blank=True)
+    category = models.ForeignKey(Category, null=True, blank=True)
+    seller = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created = models.DateTimeField(auto_now_add=True)
+    paid_status = models.BooleanField(default=False)
+    special_sale_name = models.CharField(max_length=40)
+    special_sale_category = models.CharField(choices=CHOICES, max_length=40)
+    special_sale_description = models.TextField()
 
     def __str__(self):
         return self.item

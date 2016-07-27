@@ -8,7 +8,8 @@ from django.conf import settings  # for photos
 from main_app.views import (IndexView, LocationListAPIView,
     LocationDetailAPIView, CategoryListAPIView, CategoryDetailAPIView,
     ListingListAPIView, ListingDetailAPIView, UserRegisterAPIView,
-    CurrentUserAPIView, UserListAPIView, UserDetailAPIView)
+    CurrentUserAPIView, UserListAPIView, UserDetailAPIView, SpecialSaleListAPIView,
+    SpecialSaleDetailAPIView)
 
 
 urlpatterns = [
@@ -25,6 +26,8 @@ urlpatterns = [
     url(r'api/categories/(?P<pk>\d+)/$', CategoryDetailAPIView.as_view(), name='category_detail_api_view'),
     url(r'api/listings/$', ListingListAPIView.as_view(), name='listing_list_api_view'),
     url(r'api/listings/(?P<pk>\d+)/$', ListingDetailAPIView.as_view(), name='listing_detail_api_view'),
+    url(r'api/special/$', SpecialSaleListAPIView.as_view(), name='special_sale_list_api_view'),
+    url(r'api/special/(?P<pk>\d+)/$', SpecialSaleDetailAPIView.as_view(), name='special_sale_detail_api_view'),
     url(r'api/users/$', UserListAPIView.as_view(), name='user_list_api_view'),
     url(r'api/users/(?P<pk>\d+)/$', UserDetailAPIView.as_view(), name='user_detail_api_view'),
     # url(r'api/profile/$', ProfileListAPIView.as_view(), name='profile_list_api_view'),

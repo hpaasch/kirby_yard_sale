@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from main_app.models import Location, Category, Listing # , Profile
+from main_app.models import Location, Category, Listing, SpecialSale # , Profile
 # from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 
@@ -25,6 +25,16 @@ class ListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Listing
         fields = ('id', 'item', 'description', 'photo', 'price', 'seller', 'category')
+
+
+class SpecialSaleSerializer(serializers.ModelSerializer):
+    seller = serializers.PrimaryKeyRelatedField(read_only=True)
+
+    class Meta:
+        model = SpecialSale
+        fields = ('id', 'special_sale_name', 'special_sale_category',
+        'special_sale_description', 'item', 'description', 'photo', 'price',
+        'seller', 'category')
 
 
 # class ProfileSerializer(serializers.ModelSerializer):
