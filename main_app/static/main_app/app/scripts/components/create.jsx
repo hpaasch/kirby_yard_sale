@@ -29,7 +29,7 @@ var CreateComponent = React.createClass({
 
     var newItem = new Listing();
     newItem.make(item, description, price, photo, function(){
-      self.props.router.navigate('#sales/', {trigger: true});
+      self.props.router.navigate('#profile/', {trigger: true});
     });
   },
   handleItemChange: function(e){
@@ -60,7 +60,7 @@ var CreateComponent = React.createClass({
     return(
       <div className="row">
         <h3 id="title" className=" white-text card-panel light-green darken-1 col s8 offset-s2">create listing</h3>
-          <form className="col s8 offset-s2" enctype="multipart/form-data" onSubmit={this.handleSubmit}>
+          <form className="col s8 offset-s2" encType="multipart/form-data" onSubmit={this.handleSubmit}>
              <div className="row">
                 <div className="input-field col s6">
                    <input

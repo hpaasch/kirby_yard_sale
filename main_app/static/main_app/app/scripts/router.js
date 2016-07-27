@@ -100,8 +100,9 @@ var TheAppRouter = Backbone.Router.extend({
     );
   },
   createprofile: function(){
+    var self = this;
     ReactDOM.render(
-      React.createElement(CreateComponent),
+      React.createElement(CreateComponent, {router: self}),
       document.getElementById('container')
     );
   },
