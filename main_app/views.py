@@ -41,6 +41,9 @@ class ListingListAPIView(generics.ListCreateAPIView):
     queryset = Listing.objects.all()
     serializer_class = ListingSerializer
 
+    def perform_create(self, serializer):
+        serializer.save(seller=self.request.user)
+
 
 class ListingDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Listing.objects.all()

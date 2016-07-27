@@ -251,9 +251,23 @@ div#list2{
   height: 300px;
   margin: 15px;
   padding-left: 20px;
-  img{
-    width: 100%;
-  }
+}
+
+.yardsale:hover{
+  background-color: $lightblue;
+}
+
+.sales:hover{
+  background-color: $blue;
+}
+
+.cart:hover{
+  background-color: $darkblue;
+}
+
+.imgwrapper{
+  margin-top: 20px;
+  border: 1px solid black;
 }
 
 .sales{
@@ -261,6 +275,7 @@ div#list2{
   border-radius: 10px;
   height: 300px;
   margin: 15px;
+  padding-left: 20px;
 }
 
 .cart{
@@ -268,11 +283,13 @@ div#list2{
   margin: 15px;
   border-radius: 10px;
   height: 300px;
+  padding-left: 20px;
 }
 
 .item{
   border: 1px solid black;
   margin: 15px;
   border-radius: 10px;
-  height: 270px;
+  height: 240px;
+  background-color: white;
 }

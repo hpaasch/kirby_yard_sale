@@ -20,6 +20,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ListingSerializer(serializers.ModelSerializer):
+    seller = serializers.PrimaryKeyRelatedField(read_only=True)
 
     class Meta:
         model = Listing

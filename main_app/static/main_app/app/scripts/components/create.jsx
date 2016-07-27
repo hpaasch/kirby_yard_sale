@@ -3,7 +3,6 @@ var router = require('../router');
 var LocationComponent = require('../components/locations.jsx');
 var CategoryComponent = require('../components/categories.jsx');
 var Listing = require('../models/listing').Listing;
-var User = require('../models/user').User;
 
 
 
@@ -58,13 +57,10 @@ var CreateComponent = React.createClass({
     });
   },
   render: function(){
-    var me = this.state.me;
-    console.warn(this.state.me)
-
     return(
       <div className="row">
         <h3 id="title" className=" white-text card-panel light-green darken-1 col s8 offset-s2">create listing</h3>
-          <form className="col s8 offset-s2" onSubmit={this.handleSubmit}>
+          <form className="col s8 offset-s2" enctype="multipart/form-data" onSubmit={this.handleSubmit}>
              <div className="row">
                 <div className="input-field col s6">
                    <input
