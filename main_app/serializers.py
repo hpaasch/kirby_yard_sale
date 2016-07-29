@@ -48,7 +48,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'email_address', 'first_name', 'last_name', 'street_address', 'photo', 'location')
+        fields = ('id', 'email_address', 'first_name', 'last_name',
+                    'street_address', 'photo', 'location', 'listing_set')
 
     # def personal_listings(self):
     #     return Listing.objects.filter(seller__user=self.request.user)
