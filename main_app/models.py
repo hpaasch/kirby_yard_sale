@@ -38,7 +38,7 @@ class Listing(models.Model):
     category = models.ForeignKey(Category, null=True, blank=True)
     seller = models.ForeignKey(settings.AUTH_USER_MODEL)
     created = models.DateTimeField(auto_now_add=True)
-    paid_status = models.BooleanField(default=False)
+    buyer = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='buyer', null=True)
 
     def __str__(self):
         return self.item
