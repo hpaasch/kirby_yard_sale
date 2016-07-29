@@ -14,18 +14,18 @@ var HomeComponent = React.createClass({
     return(
       <div className="row">
         <header className="head">
-          <div className="logo col s6 offset-s3">
-            <h1>YARDSALE</h1>
+          <div className="logo col l6 offset-l3">
+            <h1 className="col s12">YARDSALE</h1>
           </div>
         </header>
         <div className="nav col s12">
-          <dl className="col s4 offset-s4 navbar">
+          <dl className="col s12 col m4 offset-m4 navbar">
             <dd><button id="submit" className="waves-effect waves-light btn" onClick={this.handleSignUp}>Sign Up</button></dd>
             <dd><button  id="submit" className="waves-effect waves-light btn" onClick={this.handleLogin}>Login</button></dd>
           </dl>
         </div>
         <section className="home2">
-          <p className="col s6 offset-s3" id="white">Search for what youre looking for by category or by location: </p>
+          <p className="col s12 col l6 offset-l3" id="white">Search for what youre looking for by category or by location: </p>
           <div>
             <CategoryComponent />
             <button id="submit2" className="waves-effect waves-light btn">Search</button>
@@ -35,7 +35,7 @@ var HomeComponent = React.createClass({
             <button id="submit3" className="waves-effect waves-light btn">Search</button>
           </div>
         </section>
-        
+
         <section className="col s12 footer valign-wrapper">
           <p className="col s4">Copyright IronYard 2016</p>
           <dd className="social col s4">

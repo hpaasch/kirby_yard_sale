@@ -28,7 +28,7 @@ var LocationComponent = React.createClass({
     });
     return(
       <div>
-          <select className="browser-default col s3 offset-s4">
+          <select className="browser-default col s10 offset-s1 col l3 offset-l4">
             <option value="">Choose your city</option>
             {locationList}
           </select>

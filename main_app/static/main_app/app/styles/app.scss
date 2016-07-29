@@ -50,11 +50,11 @@ font-family: 'Dosis', sans-serif;
 }
 
 dl.navbar{
-  margin: 0 auto;
   font-family: 'Dosis', sans-serif;
+  margin-top: 20px;
   dd{
     display: inline;
-    padding-right: 20px;
+    margin-right: 6px;
   }
 }
 
@@ -70,10 +70,6 @@ header.head{
 
 .nav{
   background-color: $black;
-  h5{
-    color: white;
-    text-align: center;
-  }
 }
 
 .material-icons{
@@ -83,9 +79,8 @@ header.head{
 #submit{
  background-color: white;
  color: black;
+ width: 48%;
  display: inline-block;
- margin: 30px auto 20px auto;
- width: 200px;
  font-family: 'Dosis', sans-serif;
 }
 
@@ -401,4 +396,18 @@ div.rightside{
 
 .formhead{
   padding: 10px;
+}
+
+// ---------------------------------------
+
+
+@media (max-width: 600px) {
+  #submit{
+   background-color: white;
+   color: black;
+   margin-top: 10px;
+   width: 100%;
+   display: inline-block;
+   font-family: 'Dosis', sans-serif;
+  }
 }
