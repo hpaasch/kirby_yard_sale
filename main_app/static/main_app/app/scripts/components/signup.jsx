@@ -2,6 +2,8 @@ var React = require('react');
 var router = require('../router');
 var User = require('../models/user').User;
 var LocationComponent2 = require('../components/locations.jsx').LocationComponent2;
+var LocationCollection = require('../models/location').LocationCollection;
+
 
 
 var SignUpComponent = React.createClass({
@@ -12,7 +14,20 @@ var SignUpComponent = React.createClass({
        'username': '',
        'first_name': '',
        'last_name': '',
+       'photo': '',
+       'location': '',
+       listOfLocations: []
      }
+  },
+  componentWillMount: function(){
+    var listOfLocations = new LocationCollection();
+
+    listOfLocations.fetch().done(() => {
+      this.setState({
+        'listOfLocations': listOfLocations
+      });
+    });
+
   },
   handleSubmit: function(e){
     e.preventDefault();
@@ -22,11 +37,22 @@ var SignUpComponent = React.createClass({
     var password = this.state.password;
     var first_name = this.state.first_name;
     var last_name = this.state.last_name;
+    var photo = this.state.photo;
+    var location = this.state.location;
 
 
     var newUser = new User();
+    newUser.set({
+      'email_address': email_address,
+      'password': password,
+      'first_name': first_name,
+      'last_name': last_name,
+      'photo': photo,
+      'username': username,
+      'location': location
+    });
 
-    newUser.register(email_address, password, first_name, last_name, username, function(){
+    newUser.register().done(function(){
       self.props.router.navigate('#login/', {trigger: true});
     });
   },
@@ -54,7 +80,26 @@ var SignUpComponent = React.createClass({
       'last_name': e.target.value
     });
   },
+  handlePhotoChange: function(e){
+    this.setState({
+      'photo': e.target.files[0]
+    });
+  },
+  handleLocationChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'location': e.target.value
+    });
+  },
   render: function(){
+
+    var locations = this.state.listOfLocations;
+    var self = this;
+    var locationList = locations.map(function(location, index){
+      return(
+        <option key={index} value={self.state.location}>{location.get('city')}</option>
+      );
+    });
     return(
       <div className="row">
         <h3 id="title" className="bluepageheader white-text card-panel col s8 offset-s2">Sign Up</h3>
@@ -95,6 +140,21 @@ var SignUpComponent = React.createClass({
                     onChange={this.handleLastNameChange}
                     name="last_name"
                     type="text" />
+               </div>
+               <div className="input-field col s6">
+                 <select name="city" onChange={self.handleLocationChange} className="browser-default col s3 offset-s4">
+                   <option id="location" value="">Choose your city</option>
+                   {locationList}
+                 </select>
+               </div>
+               <div className="input-field col s6">
+                 <label htmlFor="photo">Photo</label><br />
+                 <br />
+                  <input
+                    name="photo"
+                    id="photo"
+                    onChange={this.handlePhotoChange}
+                    type="file" />
                </div>
             </div>
             <button id="submitbtn" className="waves-effect waves-light btn" type="submit">Sign Up</button>

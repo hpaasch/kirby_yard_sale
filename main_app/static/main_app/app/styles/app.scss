@@ -7,11 +7,12 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 
 
 // colors
-$darkblue: #54819C;
-$blue: #669AB6;
-$lightblue: #7AC4DD;
+$darkblue: #48616c;
+$blue: #48616c;
+$lightblue: #48616c;
 $gray: #666769;
 $black: #212121;
+$red: #ff5a5a;
 
 
 
@@ -38,7 +39,14 @@ font-family: 'Dosis', sans-serif;
 
 
 .logo{
-  margin-top: 220px;
+  height: 100px;
+  margin-top: 100px;
+  h1{
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+    color: white;
+    font-size: 90px;
+  }
 }
 
 dl.navbar{
@@ -52,10 +60,12 @@ dl.navbar{
 
 header.head{
   height: 500px;
-  background-image: url('/static/main_app/app/images/background-wave2.png');
-  background-position: bottom;
+  background-color: #ff5a5a;
+  background-image: url('/static/main_app/app/images/pink.png');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-origin: content-box;
 }
 
 .nav{
@@ -102,22 +112,22 @@ header.head{
 }
 
 #submit2:hover{
-  background-color: $lightblue;
+  background-color: $red;
   color: white;
 }
 
 #submit3:hover{
-  background-color: $lightblue;
+  background-color: $red;
   color: white;
 }
 
 #submit:hover{
-  background-color: $lightblue;
+  background-color: $red;
   color: white;
 }
 
 #title{
-  background-color: $blue;
+  background-color: #48616c;
   padding: 20px;
   font-family: 'Dosis', sans-serif;
 }
@@ -125,7 +135,20 @@ header.head{
 #submitbtn{
   background-color: $gray;
   font-family: 'Dosis', sans-serif;
+  margin-right: 5px;
   width: 230px;
+}
+
+#submitbtn:hover{
+  background-color: $red;
+}
+
+#submitbtn2{
+  background-color: #ff5a5a;
+  font-family: 'Dosis', sans-serif;
+  width: 230px;
+  font-size: 22px;
+  height: 70px;
 }
 
 div.col.s12{
@@ -246,23 +269,21 @@ div#list2{
 }
 
 .yardsale{
-  border: 1px solid black;
-  border-radius: 10px;
+  a{
+    color: #ff5a5a;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  a:hover{
+    color: black;
+  }
+  border-radius: 5px;
   height: 300px;
   margin: 15px;
   padding-left: 20px;
-}
-
-.yardsale:hover{
-  background-color: $lightblue;
-}
-
-.sales:hover{
-  background-color: $blue;
-}
-
-.cart:hover{
-  background-color: $darkblue;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(241, 241, 241);
 }
 
 .imgwrapper{
@@ -271,34 +292,113 @@ div#list2{
 }
 
 .sales{
-  border: 1px solid black;
-  border-radius: 10px;
+  a{
+    color: #ff5a5a;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  a:hover{
+    color: black;
+  }
+  border-radius: 5px;
   height: 300px;
   margin: 15px;
   padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(241, 241, 241);
 }
 
 .cart{
-  border: 1px solid black;
-  margin: 15px;
-  border-radius: 10px;
+  a{
+    color: #ff5a5a;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  a:hover{
+    color: black;
+  }
+  border-radius: 5px;
   height: 300px;
+  margin: 15px;
   padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(241, 241, 241);
 }
 
 .item{
-  border: 1px solid black;
   margin: 15px;
-  border-radius: 10px;
-  height: 240px;
+  border-radius: 5px;
+  height: 260px;
   background-color: white;
 }
 
+.ydsale{
+  height: 220px;
+}
+
+.ydsalebig{
+  height: 300px;
+}
+
+.imgwrapper3{
+  height: 225px;
+  overflow: hidden;
+}
+
+.imgwrapper2{
+  height: 150px;
+  overflow: hidden;
+}
+
 .yardsale{
-  height: 200px;
+  height: 280px;
   overflow: hidden;
 }
 
 .stays{
-  border-bottom: 1px solid red;
+  background-color: lighten($red, 20);
+  margin-top: 20px;
+}
+
+.subtitle{
+  text-align: center;
+}
+
+div.salenav{
+  margin-top: 95px;
+  margin-left: 20px;
+}
+
+.salemain{
+  h3{
+    text-align: center;
+  }
+}
+
+.ydsalehuge{
+  height: 550px;
+}
+
+.imgwrapper4{
+  height: 450px;
+  overflow: hidden;
+}
+
+div.rightside{
+  margin-top: 480px;
+}
+
+#finish{
+  margin-top: 20px;
+  background-color: $red;
+}
+
+#add{
+  background-color: $blue;
+}
+
+.formhead{
+  padding: 10px;
 }

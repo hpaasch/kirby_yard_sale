@@ -81,9 +81,13 @@ class UserDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 class CurrentUserAPIView(generics.RetrieveUpdateAPIView):
     model = User
     serializer_class = UserSerializer
+    # queryset = Listing.objects.all()
 
     def get_object(self):
-        return self.request.user;
+        return self.request.user
+
+    # def get_queryset(self):
+    #     return Listing.objects.filter(seller__user=self.request.user)
 
 
 

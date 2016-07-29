@@ -26,7 +26,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email_address = models.EmailField(max_length=45, unique=True)
     street_address = models.TextField()
     phone = models.CharField(max_length=14)
-    photo = models.ImageField(upload_to='logo_images', null=True, blank=True, verbose_name='Upload a logo')
+    photo = models.ImageField(upload_to='profile_images', null=True, blank=True, verbose_name='Upload a photo')
     is_staff = models.BooleanField('staff status', default=False,
         help_text='Designates whether the user can log into this admin site.')
     is_active = models.BooleanField('active', default=True,

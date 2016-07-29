@@ -25,12 +25,13 @@ var CreateComponent = React.createClass({
   },
   render: function(){
     return(
-      <div>
-        <h1>Please choose type of Yardsale to create: </h1>
-        <button type="button" className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handleACause}>A Cause</button>
-        <button type="button" className="waves-effect waves-light btn #7cb342 light-green darken-1" onClick={this.handlePersonal}>Personal</button>
-        <SpecialComponent displaySpecialForm={this.state.displaySpecialForm}/>
-        <NormalComponent displayNormalForm={this.state.displayNormalForm}/>
+      <div className="row">
+        <h3 id="title" className="form head white-text card-panel col s12">Create YardSale</h3>
+        <h5 className="subtitle">What type of yardsale will you be creating today? </h5>
+        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s2 offset-s4" onClick={this.handleACause}>For A Cause</button>
+        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s2" onClick={this.handlePersonal}>Personal</button>
+        <SpecialComponent router={this.props.router} displaySpecialForm={this.state.displaySpecialForm}/>
+        <NormalComponent router={this.props.router} displayNormalForm={this.state.displayNormalForm}/>
       </div>
     )
   }
@@ -54,7 +55,6 @@ var NormalComponent = React.createClass({
     var photo = this.state.photo;
 
 
-
     var newItem = new Listing();
     newItem.set({
       'item': item,
@@ -62,9 +62,7 @@ var NormalComponent = React.createClass({
       'price': price,
       'photo': photo
     });
-    newItem.save().done(function(){
-      self.props.router.navigate('#createprofile/', {trigger: true});
-    });
+    newItem.save();
 
     this.setState({
       'item': '',
@@ -93,10 +91,12 @@ var NormalComponent = React.createClass({
     });
   },
   handlePhotoChange: function(e){
-    e.preventDefault();
     this.setState({
-      'photo': e.target.value
+      'photo': e.target.files[0]
     });
+  },
+  handleFinishChange: function(){
+    this.props.router.navigate('#profile/', {trigger: true});
   },
   render: function(){
     if(!this.props.displayNormalForm){
@@ -104,8 +104,7 @@ var NormalComponent = React.createClass({
    }
     return(
       <div className="row">
-        <h3 id="title" className=" white-text card-panel light-green darken-1 col s8 offset-s2">Create Normal Listing</h3>
-          <form id="form" className="col s8 offset-s2" encType="multipart/form-data" onSubmit={this.handleSubmit}>
+          <form id="form" className="col s8 offset-s2" onSubmit={this.handleSubmit}>
              <div className="row">
                 <div className="input-field col s6">
                    <input
@@ -140,17 +139,21 @@ var NormalComponent = React.createClass({
                    <input
                      name="photo"
                      id="photo"
-                     value={this.state.photo}
                      onChange={this.handlePhotoChange}
                      type="file" />
                 </div>
-              </div>
-             <button className="waves-effect waves-light btn #7cb342 light-green darken-1">Submit</button>
+             </div>
+             <button id="add" className="waves-effect waves-light btn">Add Another Item</button>
           </form>
-      </div>
+          <div className="col s8 offset-s2">
+            <button id="finish" onClick={this.handleFinishChange} className="col s2 waves-effect waves-light btn">Finish</button>
+          </div>
+    </div>
     )
   }
 });
+
+
 
 var SpecialComponent = React.createClass({
   getInitialState: function(){
@@ -158,7 +161,10 @@ var SpecialComponent = React.createClass({
       'item': '',
        'description': '',
        'price': '',
-       'photo': ''
+       'photo': '',
+       'special_sale_name': '',
+       'special_sale_description': '',
+       'special_sale_category': ''
     }
   },
   handleSubmit: function(e){
@@ -175,7 +181,6 @@ var SpecialComponent = React.createClass({
 
 
     var newItem = new SpecialListing();
-    console.log(newItem);
     newItem.set({
       'item': item,
       'description': description,
@@ -185,9 +190,9 @@ var SpecialComponent = React.createClass({
       'special_sale_name': special_sale_name,
       'special_sale_category': special_sale_category
     });
-    newItem.save().done(function(){
-      self.props.router.navigate('#createprofile/', {trigger: true});
-    });
+    newItem.save();
+      // self.props.router.navigate('#createprofile/', {trigger: true});
+
 
     this.setState({
       'item': '',
@@ -219,9 +224,8 @@ var SpecialComponent = React.createClass({
     });
   },
   handlePhotoChange: function(e){
-    e.preventDefault();
     this.setState({
-      'photo': e.target.value
+      'photo': e.target.files[0]
     });
   },
   handleSpecialDescriptionChange: function(e){
@@ -242,16 +246,25 @@ var SpecialComponent = React.createClass({
       'special_sale_name': e.target.value
     });
   },
+  handleSpecialNameChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'special_sale_name': e.target.value
+    });
+  },
+  handleFinishChange: function(){
+    this.props.router.navigate('#profile/', {trigger: true});
+  },
   render: function(){
     if(!this.props.displaySpecialForm){
      return <div />
    }
     return(
       <div className="row">
-        <h3 id="title" className=" white-text card-panel light-green darken-1 col s8 offset-s2">Create Special Listing</h3>
-          <form id="form" className="col s8 offset-s2" encType="multipart/form-data" onSubmit={this.handleSubmit}>
+          <form id="form" className="col s8 offset-s2" onSubmit={this.handleSubmit}>
              <div className="row">
-               <div className="input-field col s12">
+               <div className="stays col s12">
+               <div className="input-field col s10">
                   <input
                     name="special_sale_name"
                     id="special_sale_name"
@@ -260,16 +273,17 @@ var SpecialComponent = React.createClass({
                     type="text" />
                   <label htmlFor="special_sale_name">Sale Name</label>
                </div>
-               <div className="input-field col s12">
-                  <input
-                    name="special_sale_category"
-                    id="special_sale_category"
-                    value={this.state.special_sale_category}
-                    onChange={this.handleSpecialCategoryChange}
-                    type="text" />
-                  <label htmlFor="special_sale_category">Sale Category</label>
+               <div className="input-field col s8">
+                 <select className="browser-default" onChange={this.handleSpecialCategoryChange} name='special_sale_category'>
+                   <option value="">Choose a Cause</option>
+                   <option value="Extra fun">Extra fun</option>
+                   <option value="Personal need">Personal need</option>
+                   <option value="Big trip">Big trip</option>
+                   <option value="Help others">Help others</option>
+                   <option value="Other">Other</option>
+                 </select>
                </div>
-               <div className="input-field col s12 stays">
+               <div className="input-field col s10">
                   <input
                     name="special_sale_description"
                     id="special_sale_description"
@@ -277,6 +291,7 @@ var SpecialComponent = React.createClass({
                     onChange={this.handleSpecialDescriptionChange}
                     type="text" />
                   <label htmlFor="special_sale_description">Sale Description</label>
+               </div>
                </div>
                 <div className="input-field col s6">
                    <input
@@ -311,13 +326,16 @@ var SpecialComponent = React.createClass({
                    <input
                      name="photo"
                      id="photo"
-                     value={this.state.photo}
                      onChange={this.handlePhotoChange}
                      type="file" />
                 </div>
-              </div>
-             <button className="waves-effect waves-light btn #7cb342 light-green darken-1">Submit</button>
+             </div>
+             <button id="add" className="waves-effect waves-light btn">Add Another Item</button>
           </form>
+          <div className="col s8 offset-s2">
+            <button onClick={this.handleFinishChange} id="finish" className="col s2 waves-effect waves-light btn">Finish</button>
+          </div>
+
       </div>
     )
   }

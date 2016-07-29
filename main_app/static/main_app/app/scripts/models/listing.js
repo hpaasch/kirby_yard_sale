@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
-var SaveMethod = require('../models/utilities');
+var FileModel = require('./utilities').FileModel;
 
-var Listing = SaveMethod.extend({
+var Listing = FileModel.extend({
   urlRoot: '/api/listings/',
   // make: function(item, description, price, photo, callback){
   //   jQuery.post('/api/listings/',

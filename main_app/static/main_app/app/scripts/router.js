@@ -16,6 +16,9 @@ var SalesComponent = require('./components/sales.jsx');
 var CartComponent = require('./components/cart.jsx');
 var HopeComponent = require('./components/hope.jsx');
 var CreateComponent = require('./components/create.jsx');
+var SpecialCategoryComponent = require('./components/specialcategory.jsx');
+var DetailComponent = require('./components/profile.jsx').DetailComponent;
+
 
 
 
@@ -30,20 +33,22 @@ var TheAppRouter = Backbone.Router.extend({
     'sales/': 'sales',
     'cart/': 'cart',
     'createprofile/': 'createprofile',
-    'listing/': 'listing'
+    'listing/': 'listing',
+    'detail/:id/': 'detail',
+    'special/': 'special'
   },
   initialize: function(){
     var csrftoken = csrf.getCookie('csrftoken');
-    // console.log('csrftoken', csrftoken);
+    console.log('csrftoken', csrftoken);
 
     $.ajaxSetup({
       beforeSend: function(xhr, settings) {
         if (!csrf.csrfSafeMethod(settings.type) && !this.crossDomain) {
           xhr.setRequestHeader("X-CSRFToken", csrftoken);
         } else {
-          // console.warn("CSRF Token Not Set!");
-          // console.log('safe method', !csrf.csrfSafeMethod(settings.type));
-          // console.log('cross domain', !this.crossDomain);
+          console.warn("CSRF Token Not Set!");
+          console.log('safe method', !csrf.csrfSafeMethod(settings.type));
+          console.log('cross domain', !this.crossDomain);
         }
       }
     });
@@ -84,19 +89,19 @@ var TheAppRouter = Backbone.Router.extend({
   },
   yardsale: function(){
     ReactDOM.render(
-      React.createElement(YardSaleComponent),
+      React.createElement(YardSaleComponent, {router: self}),
       document.getElementById('container')
     );
   },
   sales: function(){
     ReactDOM.render(
-      React.createElement(SalesComponent),
+      React.createElement(SalesComponent, {router: self}),
       document.getElementById('container')
     );
   },
   cart: function(){
     ReactDOM.render(
-      React.createElement(CartComponent),
+      React.createElement(CartComponent, {router: self}),
       document.getElementById('container')
     );
   },
@@ -108,8 +113,23 @@ var TheAppRouter = Backbone.Router.extend({
     );
   },
   listing: function(){
+    var self = this;
     ReactDOM.render(
-      React.createElement(ListingComponent),
+      React.createElement(ListingComponent, {router: self}),
+      document.getElementById('container')
+    );
+  },
+  special: function(){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(SpecialCategoryComponent, {router: self}),
+      document.getElementById('container')
+    );
+  },
+  detail: function(id){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(DetailComponent, {id: id, router: self}),
       document.getElementById('container')
     );
   }

@@ -48,14 +48,16 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'email_address', 'first_name', 'last_name', 'street_address', 'photo')
+        fields = ('id', 'email_address', 'first_name', 'last_name', 'street_address', 'photo', 'location')
 
+    # def personal_listings(self):
+    #     return Listing.objects.filter(seller__user=self.request.user)
 
 class CreateUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('email_address', 'password', 'first_name', 'last_name', 'photo')
+        fields = ('email_address', 'password', 'first_name', 'last_name', 'photo', 'location')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -64,6 +66,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
             photo=validated_data['photo'],
+            location =validated_data['location'],
         )
         user.set_password(validated_data['password'])
         user.save()
