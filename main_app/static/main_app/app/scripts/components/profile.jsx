@@ -61,11 +61,11 @@ var DetailComponent = React.createClass({
 
     return(
       <div className="row">
-        <div className="leftside col s6">
+        <div className="leftside col s12 col l6">
           <h5>Your Item</h5>
           <div>{listingItem}</div>
         </div>
-        <div className="rightside col s6">
+        <div className="rightside col s12 col l6">
           <h6>Item Details</h6>
           <button onClick={this.handleFakeBuy} id="submitbtn2" className="waves-effect waves-light btn">BUY</button>
         </div>
@@ -104,6 +104,7 @@ var ListingComponent = React.createClass({
     var listings = this.state.listings;
     var me = this.state.me;
     var listingList = listings.map(function(listing, index){
+
       return (
           <dd key={index} className="col-md-4">
                 <div className="ydsalebig card-panel">
@@ -133,7 +134,7 @@ var ListingComponent = React.createClass({
             <dd>Tank Tops</dd>
           </dl>
         </div>
-        <div className="salemain col s10">
+        <div className="salemain col s12 col l10">
           <h3>{me.get('first_name') + 's' + ' ' + 'YardSale'}</h3>
             <dl>{listingList}</dl>
         </div>
@@ -194,7 +195,7 @@ var ProfileComponent = React.createClass({
     var listings = this.state.listings;
     var listingList = listings.map(function(listing, index){
       return (
-          <div key={index} className="col-md-3">
+          <div key={index} className="col-xs-12 col-md-4 col-lg-3">
                 <div className="ydsale card-panel">
                   <div className="imgwrapper2">
                     <img src={listing.get('photo')} />
@@ -208,19 +209,19 @@ var ProfileComponent = React.createClass({
       <div className="row">
         <h3 id="title" className="white-text card-panel col s12">Hello, {me.get('first_name')}</h3>
 
-          <div id="side-nav" className="col s3">
-            <div id="list2" className="idphoto col s8 offset-s2"><img src={me.get('photo')}></img></div>
-            <div id="list" className="col s8 offset-s2">{me.get('first_name') + ' ' + me.get('last_name')}</div>
-            <div id="list1" className="col s8 offset-s2">{me.get('email_address')}</div>
-              <div id="list1" className="col s8 offset-s2">{me.get('street_address')}</div>
+          <div id="side-nav" className="col s12 col m3 col l3">
+            <div id="list2" className="idphoto col s8 offset-s2 col m1 col l8 offset-l2"><img src={me.get('photo')}></img></div>
+            <div id="list" className="col s8 offset-s2 col m8 offset-m4 col l8 offset-l2">{me.get('first_name') + ' ' + me.get('last_name')}</div>
+            <div id="list1" className="col s8 offset-s2 col m8 offset-m4 col l8 offset-l2">{me.get('email_address')}</div>
+              <div id="list1" className="col s8 offset-s2 col m8 offset-m4 col l8 offset-l2">{me.get('street_address')}</div>
 
 
-            <dl className="profilelinks col s8 offset-s2">
-              <dd><button id="submitbtn2" className="waves-effect waves-light btn" onClick={this.handleCreateProfile}>Create Yardsale</button></dd>
+            <dl className="profilelinks col s8 offset-s2 col m6 col l8 offset-l2">
+              <dd><button id="submitbtn2" className="col m6 waves-effect waves-light btn" onClick={this.handleCreateProfile}>Create Yardsale</button></dd>
             </dl>
           </div>
 
-          <div id="main" className="col s9">
+          <div id="main" className="col s12 col m9 col l9">
             <div className="row">
 
             <div className="yardsale">

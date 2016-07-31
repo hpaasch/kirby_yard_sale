@@ -14,7 +14,7 @@ var HomeComponent = React.createClass({
     return(
       <div className="row">
         <header className="head">
-          <div className="logo col l6 offset-l3">
+          <div className="logo col s12">
             <h1 className="col s12">YARDSALE</h1>
           </div>
         </header>
@@ -28,22 +28,25 @@ var HomeComponent = React.createClass({
           <p className="col s12 col l6 offset-l3" id="white">Search for what youre looking for by category or by location: </p>
           <div>
             <CategoryComponent />
-            <button id="submit2" className="waves-effect waves-light btn">Search</button>
+            <button id="submit2" className="waves-effect waves-light btn col s10 offset-s1 col l4 offset-l4">Search</button>
           </div>
           <div>
             <LocationComponent />
-            <button id="submit3" className="waves-effect waves-light btn">Search</button>
+            <button id="submit3" className="waves-effect waves-light btn col s10 offset-s1 col l4 offset-l4">Search</button>
           </div>
         </section>
 
         <section className="col s12 footer valign-wrapper">
-          <p className="col s4">Copyright IronYard 2016</p>
-          <dd className="social col s4">
-            <dl className="social"><img className="icon" src="static/main_app/app/images/twitter.png" /></dl>
-            <dl className="social"><img className="icon" src="static/main_app/app/images/face.png" /></dl>
-            <dl className="social"><img className="icon" src="static/main_app/app/images/pin.png" /></dl>
-          </dd>
-          <p className="col s4">Kirby Munson / Front End Student</p>
+          <p className="copy col s5">Copyright IronYard 2016</p>
+          <dl className="social col s12 col m2">
+            <dd className="social"><img className="icon" src="static/main_app/app/images/twitter.png" /></dd>
+            <dd className="social"><img className="icon" src="static/main_app/app/images/face.png" /></dd>
+            <dd className="social"><img className="icon" src="static/main_app/app/images/pin.png" /></dd>
+          </dl>
+          <dl className="name col s5">
+            <dd>Kirby Munson / Front End Student</dd>
+            <dd>Hope Paasch / Back End Student</dd>
+          </dl>
         </section>
       </div>
     )

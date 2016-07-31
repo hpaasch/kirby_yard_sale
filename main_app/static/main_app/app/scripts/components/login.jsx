@@ -40,10 +40,10 @@ var LoginComponent = React.createClass({
   render: function(){
     return(
       <div className="row">
-        <h3 id="title" className="white-text card-panel col s8 offset-s2">Log In</h3>
-         <form className="col s8 offset-s2" onSubmit={this.handleSubmit}>
+        <h3 id="title" className="white-text card-panel col s12">Log In</h3>
+         <form className="col s12 col m10 offset-m1" onSubmit={this.handleSubmit}>
             <div className="row">
-               <div className="input-field col s6">
+               <div className="input-field col s12 col m10 offset-m1 col l6">
                  <label htmlFor="email_address">email_address</label>
                   <input
                     id="email_address"
@@ -52,7 +52,7 @@ var LoginComponent = React.createClass({
                     name="email_address"
                     type="text" />
                </div>
-               <div className="input-field col s6">
+               <div className="input-field col s12 col m10 offset-m1 col l6">
                   <label htmlFor="password">Password</label>
                   <input
                     id="password"

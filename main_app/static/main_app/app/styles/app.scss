@@ -87,22 +87,16 @@ header.head{
 #submit2{
   background-color: white;
   color: black;
+  margin-bottom: 20px;
   text-align: center;
-  width: 100px;
-  padding-left: 25px;
-  margin-right: 460px;
-  margin-top: 24px;
   font-family: 'Dosis', sans-serif;
 }
 
 #submit3{
   background-color: white;
   color: black;
+  margin-top: 20px;
   text-align: center;
-  width: 100px;
-  padding-left: 25px;
-  margin-right: 460px;
-  margin-top: 28px;
   font-family: 'Dosis', sans-serif;
 }
 
@@ -131,7 +125,6 @@ header.head{
   background-color: $gray;
   font-family: 'Dosis', sans-serif;
   margin-right: 5px;
-  width: 230px;
 }
 
 #submitbtn:hover{
@@ -151,7 +144,7 @@ div.col.s12{
 }
 
 .home2{
-  padding-top: 180px;
+  padding-top: 130px;
   height: 450px;
   background-color: $darkblue;
   color: black;
@@ -237,13 +230,17 @@ div#container{
   margin-bottom: 0;
 }
 
-dd.social.col.s4{
-  padding: 90px;
-}
+// dd.social.col.s4{
+//   padding: 90px;
+// }
 
-dl.social{
+dd.social{
   display: inline;
   padding: 20px;
+  img{
+    width: 12%;
+    height: 12%;
+  }
 }
 
 .icon{
@@ -322,6 +319,15 @@ div#list2{
   background-color: rgb(241, 241, 241);
 }
 
+.name{
+  text-align: center;
+  font-size: 16px;
+}
+
+.input-field{
+  margin-right: 0px;
+}
+
 .item{
   margin: 15px;
   border-radius: 5px;
@@ -398,6 +404,40 @@ div.rightside{
   padding: 10px;
 }
 
+input:focus {
+  border-bottom: 1px solid orange;
+  -webkit-box-shadow: 0 1px 0 0 orange;
+  -moz-box-shadow: 0 1px 0 0 orange;
+  box-shadow: 0 1px 0 0 orange;
+}
+
+   .input-field label {
+     color: red;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #444;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #444;
+     box-shadow: 0 1px 0 0 #444;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #444;
+     box-shadow: 0 1px 0 0 #444;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #444;
+     box-shadow: 0 1px 0 0 #444;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #444;
+   }
+
 // ---------------------------------------
 
 
@@ -409,5 +449,101 @@ div.rightside{
    width: 100%;
    display: inline-block;
    font-family: 'Dosis', sans-serif;
+  }
+  #submit2{
+    background-color: white;
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+  }
+
+  #submit3{
+    background-color: white;
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Dosis', sans-serif;
+  }
+  .home2{
+    padding-top: 180px;
+    height: 550px;
+    background-color: $darkblue;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+  }
+
+  section.footer{
+    display: none;
+  }
+
+
+  .salenav{
+    display: none;
+  }
+
+  div.rightside{
+    margin-top: 20px;
+  }
+  #submitbtn{
+    background-color: $gray;
+    font-family: 'Dosis', sans-serif;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  .home2{
+    height: 550px;
+  }
+  #submit{
+   background-color: white;
+   color: black;
+   margin-top: 10px;
+   width: 100%;
+   display: inline-block;
+   font-family: 'Dosis', sans-serif;
+  }
+  #submit2{
+    background-color: white;
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+  }
+
+  #submit3{
+    background-color: white;
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Dosis', sans-serif;
+  }
+  section.footer{
+    display: none;
+  }
+
+  .salenav{
+    display: none;
+  }
+
+  div.rightside{
+    margin-top: 20px;
+  }
+  #submitbtn{
+    background-color: $gray;
+    font-family: 'Dosis', sans-serif;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1265px) {
+  .home2{
+    height: 540px;
+  }
+  section.footer{
+    display: none;
   }
 }

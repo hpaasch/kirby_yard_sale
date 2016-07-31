@@ -102,10 +102,10 @@ var SignUpComponent = React.createClass({
     });
     return(
       <div className="row">
-        <h3 id="title" className="bluepageheader white-text card-panel col s8 offset-s2">Sign Up</h3>
-         <form className="col s8 offset-s2" onSubmit={this.handleSubmit}>
+        <h3 id="title" className="bluepageheader white-text card-panel col s12">Sign Up</h3>
+         <form className="col s12 col m10 offset-m2 col l8 offset-l2" onSubmit={this.handleSubmit}>
             <div className="row">
-               <div className="input-field col s6">
+               <div className="input-field col s12 col m10 col l6">
                  <label htmlFor="email_address">Email</label>
                   <input
                     id="email_address"
@@ -114,7 +114,7 @@ var SignUpComponent = React.createClass({
                     name="email_address"
                     type="text" />
                </div>
-               <div className="input-field col s6">
+               <div className="input-field col s12 col m10 col l6">
                   <label htmlFor="password">Password</label>
                   <input
                     id="password"
@@ -123,7 +123,7 @@ var SignUpComponent = React.createClass({
                     name="password"
                     type="password" />
                </div>
-               <div className="input-field col s6">
+               <div className="input-field col s12 col m10 col l6">
                   <label htmlFor="first_name">First Name</label>
                   <input
                     id="first_name"
@@ -132,7 +132,7 @@ var SignUpComponent = React.createClass({
                     name="first_name"
                     type="text" />
                </div>
-               <div className="input-field col s6">
+               <div className="input-field col s12 col m10 col l6">
                   <label htmlFor="last_name">Last Name</label>
                   <input
                     id="last_name"
@@ -141,13 +141,13 @@ var SignUpComponent = React.createClass({
                     name="last_name"
                     type="text" />
                </div>
-               <div className="input-field col s6">
-                 <select name="city" onChange={self.handleLocationChange} className="browser-default col s3 offset-s4">
+               <div className="input-field col s12 col m10 col l6">
+                 <select name="city" onChange={self.handleLocationChange} className="browser-default col s10 offset-s1 col m10 col l6">
                    <option id="location" value="">Choose your city</option>
                    {locationList}
                  </select>
                </div>
-               <div className="input-field col s6">
+               <div className="input-field col s12 col m10 col l6">
                  <label htmlFor="photo">Photo</label><br />
                  <br />
                   <input

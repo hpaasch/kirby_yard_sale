@@ -28,8 +28,8 @@ var CreateComponent = React.createClass({
       <div className="row">
         <h3 id="title" className="form head white-text card-panel col s12">Create YardSale</h3>
         <h5 className="subtitle">What type of yardsale will you be creating today? </h5>
-        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s2 offset-s4" onClick={this.handleACause}>For A Cause</button>
-        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s2" onClick={this.handlePersonal}>Personal</button>
+        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s10 offset-s1 col l2 offset-l4" onClick={this.handleACause}>For A Cause</button>
+        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s10 offset-s1 col l2 offset-l4" onClick={this.handlePersonal}>Personal</button>
         <SpecialComponent router={this.props.router} displaySpecialForm={this.state.displaySpecialForm}/>
         <NormalComponent router={this.props.router} displayNormalForm={this.state.displayNormalForm}/>
       </div>
@@ -104,9 +104,9 @@ var NormalComponent = React.createClass({
    }
     return(
       <div className="row">
-          <form id="form" className="col s8 offset-s2" onSubmit={this.handleSubmit}>
+          <form id="form" className="col s12 col l8 offset-l2" onSubmit={this.handleSubmit}>
              <div className="row">
-                <div className="input-field col s6">
+                <div className="input-field col s12 col l6">
                    <input
                      name="item"
                      id="item"
@@ -115,7 +115,7 @@ var NormalComponent = React.createClass({
                      type="text" />
                    <label htmlFor="item">Item Name</label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s12 col l6">
                    <input
                      name="description"
                      id="description"
@@ -124,7 +124,7 @@ var NormalComponent = React.createClass({
                      type="text" />
                    <label htmlFor="description">Description</label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s12 col l6">
                    <input
                      name="price"
                      id="price"
@@ -133,7 +133,7 @@ var NormalComponent = React.createClass({
                      type="text" />
                    <label htmlFor="price">Price</label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s12 col l6">
                   <label htmlFor="photo">Photo</label><br />
                   <br />
                    <input
@@ -143,10 +143,10 @@ var NormalComponent = React.createClass({
                      type="file" />
                 </div>
              </div>
-             <button id="add" className="waves-effect waves-light btn">Add Another Item</button>
+             <button id="add" className="waves-effect waves-light btn">Add Item</button>
           </form>
           <div className="col s8 offset-s2">
-            <button id="finish" onClick={this.handleFinishChange} className="col s2 waves-effect waves-light btn">Finish</button>
+            <button id="finish" onClick={this.handleFinishChange} className="col s6 col l2 waves-effect waves-light btn">Finish</button>
           </div>
     </div>
     )
@@ -261,7 +261,7 @@ var SpecialComponent = React.createClass({
    }
     return(
       <div className="row">
-          <form id="form" className="col s8 offset-s2" onSubmit={this.handleSubmit}>
+          <form id="form" className="col s12 col l8 offset-l2" onSubmit={this.handleSubmit}>
              <div className="row">
                <div className="stays col s12">
                <div className="input-field col s10">
@@ -302,7 +302,7 @@ var SpecialComponent = React.createClass({
                      type="text" />
                    <label htmlFor="item">Item Name</label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s12 col l6">
                    <input
                      name="description"
                      id="description"
@@ -311,7 +311,7 @@ var SpecialComponent = React.createClass({
                      type="text" />
                    <label htmlFor="description">Description</label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s12 col l6">
                    <input
                      name="price"
                      id="price"
@@ -320,7 +320,7 @@ var SpecialComponent = React.createClass({
                      type="text" />
                    <label htmlFor="price">Price</label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s12 col l6">
                   <label htmlFor="photo">Photo</label><br />
                   <br />
                    <input
@@ -333,7 +333,7 @@ var SpecialComponent = React.createClass({
              <button id="add" className="waves-effect waves-light btn">Add Another Item</button>
           </form>
           <div className="col s8 offset-s2">
-            <button onClick={this.handleFinishChange} id="finish" className="col s2 waves-effect waves-light btn">Finish</button>
+            <button onClick={this.handleFinishChange} id="finish" className="col s6 col l2 waves-effect waves-light btn">Finish</button>
           </div>
 
       </div>
