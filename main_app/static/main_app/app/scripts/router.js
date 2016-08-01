@@ -20,6 +20,7 @@ var SpecialCategoryComponent = require('./components/specialcategory.jsx');
 var DetailComponent = require('./components/profile.jsx').DetailComponent;
 var SpecialDetailComponent = require('./components/profile.jsx').SpecialDetailComponent;
 var SpecialListingComponent = require('./components/profile.jsx').SpecialListingComponent;
+var SearchLocation = require('./components/search.jsx').SearchLocation;
 
 
 
@@ -40,7 +41,8 @@ var TheAppRouter = Backbone.Router.extend({
     'listing/': 'listing',
     'detail/:id/': 'detail',
     'special/:id/': 'special',
-    'speciallisting/': 'speciallisting'
+    'speciallisting/': 'speciallisting',
+    'searchlocation/': 'searchlocation'
   },
   initialize: function(){
     var csrftoken = csrf.getCookie('csrftoken');
@@ -142,6 +144,13 @@ var TheAppRouter = Backbone.Router.extend({
     var self = this;
     ReactDOM.render(
       React.createElement(DetailComponent, {id: id, router: self}),
+      document.getElementById('container')
+    );
+  },
+  searchlocation: function(id){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(SearchLocation, {id: id, router: self}),
       document.getElementById('container')
     );
   }

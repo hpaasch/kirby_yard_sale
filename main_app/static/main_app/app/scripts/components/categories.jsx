@@ -28,10 +28,10 @@ var CategoryComponent = React.createClass({
     });
     return(
       <div>
-          <select name="category" id="category" className="browser-default col s10 offset-s1 col l4 offset-l4">
-            <option value="">Choose your category</option>
-            {categoriesList}
-          </select>
+        <select name="category" id="category" className="browser-default col s10 offset-s1 col l4 offset-l4">
+          <option value="">Choose your category</option>
+          {categoriesList}
+        </select>
       </div>
     )
   }

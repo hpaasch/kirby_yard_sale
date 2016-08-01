@@ -28,10 +28,10 @@ var LocationComponent = React.createClass({
     });
     return(
       <div>
-          <select className="browser-default col s10 offset-s1 col l4 offset-l4">
-            <option value="">Choose your city</option>
-            {locationList}
-          </select>
+        <select className="browser-default col s10 offset-s1 col l4 offset-l4">
+          <option value="">Choose your city</option>
+          {locationList}
+        </select>
       </div>
     )
   }
@@ -63,10 +63,10 @@ var LocationComponent2 = React.createClass({
     });
     return(
       <div>
-          <select name="city" className="browser-default col s6">
-            <option value="">Choose your city</option>
-            {locationList}
-          </select>
+        <select name="city" className="browser-default col s6">
+          <option value="">Choose your city</option>
+          {locationList}
+        </select>
       </div>
     )
   }

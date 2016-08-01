@@ -10,6 +10,10 @@ var HomeComponent = React.createClass({
   handleLogin: function(){
     this.props.router.navigate('#login/', {trigger: true});
   },
+  handleLocation: function(e){
+    e.preventDefault();
+    this.props.router.navigate('#searchlocation/', {trigger: true});
+  },
   render: function(){
     return(
       <div className="row">
@@ -32,7 +36,7 @@ var HomeComponent = React.createClass({
           </div>
           <div>
             <LocationComponent />
-            <button id="submit3" className="waves-effect waves-light btn col s10 offset-s1 col l4 offset-l4">Search</button>
+            <button id="submit3" onClick={this.handleLocation} className="waves-effect waves-light btn col s10 offset-s1 col l4 offset-l4">Search</button>
           </div>
         </section>
 

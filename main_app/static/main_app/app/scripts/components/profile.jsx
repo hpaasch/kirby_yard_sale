@@ -170,9 +170,9 @@ var CauseComponent = React.createClass({
     var listingList = listings.map(function(listing, index){
       return (
           <dd key={index} className="col s12 col m6 col l4">
-                <div className="ydsalebig card-panel">
-                  {listing.get('special_sale_name') + ' '}
-                </div>
+            <div className="ydsalebig card-panel">
+              {listing.get('special_sale_name') + ' '}
+            </div>
           </dd>
         );
       });
@@ -216,15 +216,15 @@ var SpecialListingComponent = React.createClass({
     var listingList = listings.map(function(listing, index){
       return (
           <dd key={index} className="col s12 col m6 col l4">
-                <div className="ydsalebig card-panel">
-                  <div className="imgwrapper3">
-                    <img src={listing.get('photo')} />
-                  </div>
-                  <a href={"#special/" + listing.get('id') + '/'}>{listing.get('item') + ' '}</a>
-                  {listing.get('seller') + ' '}
-                  {'$' + listing.get('price') + ' '}
-                  {listing.get('description') + ' '}
-                </div>
+            <div className="ydsalebig card-panel">
+              <div className="imgwrapper3">
+                <img src={listing.get('photo')} />
+              </div>
+              <a href={"#special/" + listing.get('id') + '/'}>{listing.get('item') + ' '}</a>
+              {listing.get('seller') + ' '}
+              {'$' + listing.get('price') + ' '}
+              {listing.get('description') + ' '}
+            </div>
           </dd>
         );
       });
@@ -286,15 +286,15 @@ var ListingComponent = React.createClass({
 
       return (
           <dd key={index} className="col s12 col m6 col l4">
-                <div className="ydsalebig card-panel">
-                  <div className="imgwrapper3">
-                    <img src={listing.get('photo')} />
-                  </div>
-                  <a href={"#detail/" + listing.get('id') + '/'}>{listing.get('item') + ' '}</a>
-                  {listing.get('seller') + ' '}
-                  {'$' + listing.get('price') + ' '}
-                  {listing.get('description') + ' '}
-                </div>
+            <div className="ydsalebig card-panel">
+              <div className="imgwrapper3">
+                <img src={listing.get('photo')} />
+              </div>
+              <a href={"#detail/" + listing.get('id') + '/'}>{listing.get('item') + ' '}</a>
+              {listing.get('seller') + ' '}
+              {'$' + listing.get('price') + ' '}
+              {listing.get('description') + ' '}
+            </div>
           </dd>
         );
       });
@@ -375,12 +375,12 @@ var ProfileComponent = React.createClass({
     var listingList = listings.map(function(listing, index){
       return (
           <div key={index} className="col s12 col m6 col l3">
-                <div className="ydsale card-panel">
-                  <div className="imgwrapper2">
-                    <img src={listing.get('photo')} />
-                  </div>
-                  {listing.get('item')}
-                </div>
+            <div className="ydsale card-panel">
+              <div className="imgwrapper2">
+                <img src={listing.get('photo')} />
+              </div>
+              {listing.get('item')}
+            </div>
           </div>
         );
       });
@@ -392,7 +392,7 @@ var ProfileComponent = React.createClass({
             <div id="list2" className="idphoto col s8 offset-s2 col m1 col l8 offset-l2"><img src={me.get('photo')}></img></div>
             <div id="list" className="col s8 offset-s2 col m8 offset-m4 col l8 offset-l2">{me.get('first_name') + ' ' + me.get('last_name')}</div>
             <div id="list1" className="col s8 offset-s2 col m8 offset-m4 col l8 offset-l2">{me.get('email_address')}</div>
-              <div id="list1" className="col s8 offset-s2 col m8 offset-m4 col l8 offset-l2">{me.get('location')}</div>
+            <div id="list1" className="col s8 offset-s2 col m8 offset-m4 col l8 offset-l2">{me.get('location')}</div>
 
 
             <dl className="profilelinks col s8 offset-s2 col m2 col l8 offset-l2">
@@ -403,53 +403,55 @@ var ProfileComponent = React.createClass({
           <div id="main" className="col s12 col m9 col l9">
             <div className="row">
 
-            <div className="yardsale">
-              <a href="#listing/"><h6>Your Personal YardSale</h6></a>
+              <div className="yardsale">
+                <a href="#listing/"><h6>Your Personal YardSale</h6></a>
                 <dl>{listingList}</dl>
-            </div>
+              </div>
 
-            <SpecialProfileComponent />
+              <SpecialProfileComponent />
 
-            <div className="sales">
-              <a href="#sales/"><h6>Your Sales</h6></a>
-              <div className="ydsale card-panel col-md-3">
-                <div className="imgwrapper2">
-                  <img src="https://images.unsplash.com/photo-1453087460409-fd3ca2ad06be?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=af0a15369f0c95e58a666d7163959b34" />
-                </div>
-              </div>
-              <div className="ydsale card-panel col-md-3">
-                <div className="imgwrapper2">
-                  <img src="https://images.unsplash.com/photo-1449614115178-cb924f730780?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=11d98e91b325b99cddf45d99c466f8cf" />
-                </div>
-              </div>
-              <div className="ydsale card-panel col-md-3">
-                <div className="imgwrapper2">
-                  <img src="https://images.unsplash.com/photo-1445282804813-123ac28fe498?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=a817ae26dd615f95920ee10d3418ef2c" />
-                </div>
-              </div>
-              </div>
-            </div>
-
-            <div className="cart">
-              <a href="#cart/"><h6>Your cart</h6></a>
+              <div className="sales">
+                <a href="#sales/"><h6>Your Sales</h6></a>
                 <div className="ydsale card-panel col-md-3">
                   <div className="imgwrapper2">
-                  <img src="https://images.unsplash.com/photo-1464170400324-dda9eb57e9ed?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5dc4afee90cfa3dbc365ef2b7de8e635" />
+                    <img src="https://images.unsplash.com/photo-1453087460409-fd3ca2ad06be?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=af0a15369f0c95e58a666d7163959b34" />
+                  </div>
                 </div>
-              </div>
-              <div className="ydsale card-panel col-md-3">
-                <div className="imgwrapper2">
-                  <img src="https://images.unsplash.com/photo-1433643667043-663b34a5c052?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=ccd0c9320f2180c75f944b2843000ce9" />
+                <div className="ydsale card-panel col-md-3">
+                  <div className="imgwrapper2">
+                    <img src="https://images.unsplash.com/photo-1449614115178-cb924f730780?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=11d98e91b325b99cddf45d99c466f8cf" />
+                  </div>
                 </div>
-              </div>
-              <div className="ydsale card-panel col-md-3">
-                <div className="imgwrapper2">
-                  <img src="https://images.unsplash.com/photo-1442366783285-838b5f033cc8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=8e4ab6815a009df3621293adcdfd27d7" />
+                <div className="ydsale card-panel col-md-3">
+                  <div className="imgwrapper2">
+                    <img src="https://images.unsplash.com/photo-1445282804813-123ac28fe498?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=a817ae26dd615f95920ee10d3418ef2c" />
+                  </div>
                 </div>
-              </div>
-              </div>
+                </div>
+
+
+                <div className="cart">
+                  <a href="#cart/"><h6>Your cart</h6></a>
+                  <div className="ydsale card-panel col-md-3">
+                    <div className="imgwrapper2">
+                      <img src="https://images.unsplash.com/photo-1464170400324-dda9eb57e9ed?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5dc4afee90cfa3dbc365ef2b7de8e635" />
+                    </div>
+                  </div>
+                  <div className="ydsale card-panel col-md-3">
+                    <div className="imgwrapper2">
+                      <img src="https://images.unsplash.com/photo-1433643667043-663b34a5c052?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=ccd0c9320f2180c75f944b2843000ce9" />
+                    </div>
+                  </div>
+                  <div className="ydsale card-panel col-md-3">
+                    <div className="imgwrapper2">
+                      <img src="https://images.unsplash.com/photo-1442366783285-838b5f033cc8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=8e4ab6815a009df3621293adcdfd27d7" />
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
+          </div>
     )
   }
 });
@@ -484,19 +486,19 @@ var SpecialProfileComponent = React.createClass({
     var listingList = listings.map(function(listing, index){
       return (
           <div key={index} className="col s12 col m6 col l3">
-                <div className="ydsale card-panel">
-                  <div className="imgwrapper2">
-                    <img src={listing.get('photo')} />
-                  </div>
-                  {listing.get('item')}
-                </div>
+            <div className="ydsale card-panel">
+              <div className="imgwrapper2">
+                <img src={listing.get('photo')} />
+              </div>
+              {listing.get('item')}
+            </div>
           </div>
         );
       });
     return(
       <div className="yardsale">
         <a href="#speciallisting/"><h6>Your YardSale for a Cause</h6></a>
-          <dl>{listingList}</dl>
+        <dl>{listingList}</dl>
       </div>
     )
   }

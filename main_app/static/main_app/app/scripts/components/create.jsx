@@ -151,7 +151,7 @@ var NormalComponent = React.createClass({
                      onChange={this.handlePhotoChange}
                      type="file" />
                 </div>
-                  <CategoryComponent2 />
+                <CategoryComponent2 />
               </div>
              <button id="add" className="waves-effect waves-light btn">Add This Item</button>
           </form>
@@ -274,34 +274,34 @@ var SpecialComponent = React.createClass({
           <form id="form" className="col s12 col l8 offset-l2" onSubmit={this.handleSubmit}>
              <div className="row">
                <div className="stays col s12">
-               <div className="input-field col s10">
-                  <input
-                    name="special_sale_name"
-                    id="special_sale_name"
-                    value={this.state.special_sale_name}
-                    onChange={this.handleSpecialNameChange}
-                    type="text" />
-                  <label htmlFor="special_sale_name">Sale Name</label>
-               </div>
-               <div className="input-field col s8">
-                 <select className="browser-default" onChange={this.handleSpecialCategoryChange} name='special_sale_category'>
-                   <option value="">Choose a Cause</option>
-                   <option value="Extra fun">Extra fun</option>
-                   <option value="Personal need">Personal need</option>
-                   <option value="Big trip">Big trip</option>
-                   <option value="Help others">Help others</option>
-                   <option value="Other">Other</option>
-                 </select>
-               </div>
-               <div className="input-field col s10">
-                  <input
-                    name="special_sale_description"
-                    id="special_sale_description"
-                    value={this.state.special_sale_description}
-                    onChange={this.handleSpecialDescriptionChange}
-                    type="text" />
-                  <label htmlFor="special_sale_description">Sale Description</label>
-               </div>
+                 <div className="input-field col s10">
+                    <input
+                      name="special_sale_name"
+                      id="special_sale_name"
+                      value={this.state.special_sale_name}
+                      onChange={this.handleSpecialNameChange}
+                      type="text" />
+                    <label htmlFor="special_sale_name">Sale Name</label>
+                 </div>
+                 <div className="input-field col s8">
+                   <select className="browser-default" onChange={this.handleSpecialCategoryChange} name='special_sale_category'>
+                     <option value="">Choose a Cause</option>
+                     <option value="Extra fun">Extra fun</option>
+                     <option value="Personal need">Personal need</option>
+                     <option value="Big trip">Big trip</option>
+                     <option value="Help others">Help others</option>
+                     <option value="Other">Other</option>
+                   </select>
+                 </div>
+                 <div className="input-field col s10">
+                    <input
+                      name="special_sale_description"
+                      id="special_sale_description"
+                      value={this.state.special_sale_description}
+                      onChange={this.handleSpecialDescriptionChange}
+                      type="text" />
+                    <label htmlFor="special_sale_description">Sale Description</label>
+                 </div>
                </div>
                 <div className="input-field col s6">
                    <input
@@ -345,7 +345,6 @@ var SpecialComponent = React.createClass({
           <div className="col s8 offset-s2">
             <button onClick={this.handleFinishChange} id="finish" className="col s6 col l2 waves-effect waves-light btn">Finish</button>
           </div>
-
       </div>
     )
   }
