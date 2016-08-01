@@ -6,7 +6,7 @@ from django.contrib.auth.models import BaseUserManager, PermissionsMixin
 
 class UserManager(BaseUserManager):
     def create_user(self, email_address, password=None, **kwargs):
-        email_address = self.normalize_email_address(email_address)
+        email_address = self.normalize_email(email_address)
         user = self.model(email_address=email_address, **kwargs)
         user.set_password(password)
         user.save(using=self._db)

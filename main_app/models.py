@@ -21,7 +21,7 @@ class Location(models.Model):
 
 
 class Category(models.Model):
-    category = models.CharField(max_length=30, null=True, blank=True)
+    category = models.CharField(max_length=30, default='', blank=True)
 
     def __str__(self):
         return self.category
@@ -30,24 +30,7 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
 
-class Listing(models.Model):
-    item = models.CharField(max_length=40)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    photo = models.ImageField(upload_to='listing_photos', verbose_name='Upload a photo', null=True, blank=True)
-    category = models.ForeignKey(Category, null=True, blank=True)
-    seller = models.ForeignKey(settings.AUTH_USER_MODEL)
-    created = models.DateTimeField(auto_now_add=True)
-    buyer = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='buyer', null=True)
-
-    def __str__(self):
-        return self.item
-
-    class Meta:
-        ordering = ['-created']
-
-
-class SpecialSale(models.Model):
+class Yardsale(models.Model):
     CHOICES = (
         (EXTRA_FUN, 'Extra fun'),
         (PERSONAL_NEED, 'Personal need'),
@@ -55,17 +38,29 @@ class SpecialSale(models.Model):
         (HELP_OTHERS, 'Help others'),
         (OTHER, 'Other'),
         )
-    item = models.CharField(max_length=40)
-    description = models.TextField()
+    seller = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    cause = models.CharField(choices=CHOICES, max_length=40, null=True)
+    name = models.CharField(max_length=35, blank=True, default='')
+    description = models.TextField(null=True)
+    sale_end = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['-created']
+
+
+class Listing(models.Model):
+    yardsale = models.ForeignKey(Yardsale, null=True)
+    item = models.CharField(max_length=40, default='', blank=True)
+    description = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     photo = models.ImageField(upload_to='listing_photos', verbose_name='Upload a photo', null=True, blank=True)
     category = models.ForeignKey(Category, null=True, blank=True)
-    seller = models.ForeignKey(settings.AUTH_USER_MODEL)
-    created = models.DateTimeField(auto_now_add=True)
-    paid_status = models.BooleanField(default=False)
-    special_sale_name = models.CharField(max_length=40)
-    special_sale_category = models.CharField(choices=CHOICES, max_length=40)
-    special_sale_description = models.TextField()
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    buyer = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='buyer', null=True, blank=True)
 
     def __str__(self):
         return self.item
@@ -73,48 +68,8 @@ class SpecialSale(models.Model):
     class Meta:
         ordering = ['-created']
 
-    # @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-    # def create_listing(**kwargs):
-    #     created = kwargs.get('created')
-    #     instance = kwargs.get('instance')
-    #
-    #     if created:
-    #         Listing.objects.create(seller=instance)  # hooks listing to user
 
-
+# not yet used
 class ShoppingCart(models.Model):
     item = models.ForeignKey(Listing)
     total = models.DecimalField(max_digits=10, decimal_places=2)
-
-# class Profile(models.Model):
-#     user = models.OneToOneField('auth.User')
-#     first_name = models.CharField(max_length=25)
-#     last_name = models.CharField(max_length=25)
-#     location = models.ForeignKey(Location, null=True, blank=True)
-#     email_address = models.email_addressField(max_length=45, null=True, blank=True)
-#     street_address = models.TextField()
-#     phone = models.CharField(max_length=14)
-#     photo = models.ImageField(upload_to='logo_images', null=True, blank=True, verbose_name='Upload a logo')
-#
-#     @property
-#     def photo_url(self):
-#         if self.photo:
-#             return self.photo.url
-#         return 'http://cache1.asset-cache.net/gc/499060099-silhouette-of-fashion-girls-gettyimages.jpg?v=1&c=IWSAsset&k=2&d=M1WaA%2BMWPJUr3hK%2F6zzzX5TIop2kRCYnewKalQna8ZBT%2BbVwpUDAEifKrtnF2FhQ'
-
-
-# @receiver(post_save, sender='auth.User')
-# def create_user_profile(**kwargs):
-#     created = kwargs.get('created')
-#     instance = kwargs.get('instance')
-#
-#     if created:
-#         Profile.objects.create(user=instance)  # hooks profile to user
-
-
-# @receiver(post_save, sender='auth.User')
-# def create_token(**kwargs): # a shortcut pass in
-#     created = kwargs.get("created")  # boilerplate
-#     instance = kwargs.get("instance")  # boilerplate
-#     if created:
-#         Token.objects.create(user=instance)  # yep. standard.

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from main_app.models import Location, Category, Listing, SpecialSale # , Profile
+from main_app.models import Location, Category, Listing, Yardsale
 # from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 
@@ -20,36 +20,40 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ListingSerializer(serializers.ModelSerializer):
-    seller = serializers.PrimaryKeyRelatedField(read_only=True)
-    location = serializers.SerializerMethodField()
-
-    def get_location(self, object):
-        return object.seller.location.city
+    # seller = serializers.PrimaryKeyRelatedField(read_only=True)
+    # location = serializers.SerializerMethodField()
+    #
+    # def get_location(self, object):
+    #     return object.yardsale.location.city
 
     class Meta:
         model = Listing
-        fields = ('id', 'item', 'description', 'photo', 'price', 'seller', 'location', 'category')
+        fields = ('id', 'yardsale', 'item', 'description', 'photo', 'price', 'category', 'buyer')
 
 
-class SpecialSaleSerializer(serializers.ModelSerializer):
-    seller = serializers.PrimaryKeyRelatedField(read_only=True)
+# class SpecialSaleSerializer(serializers.ModelSerializer):
+#     seller = serializers.PrimaryKeyRelatedField(read_only=True)
+#     location = serializers.SerializerMethodField()
+#
+#     def get_location(self, object):
+#         return object.seller.location.city
+#
+#     class Meta:
+#         model = SpecialSale
+#         fields = ('id', 'special_sale_name', 'special_sale_category',
+#         'special_sale_description', 'item', 'description', 'photo', 'price',
+#         'seller', 'location', 'category')
+
+
+class YardsaleSerializer(serializers.ModelSerializer):
     location = serializers.SerializerMethodField()
 
     def get_location(self, object):
         return object.seller.location.city
 
     class Meta:
-        model = SpecialSale
-        fields = ('id', 'special_sale_name', 'special_sale_category',
-        'special_sale_description', 'item', 'description', 'photo', 'price',
-        'seller', 'location', 'category')
-
-
-# class ProfileSerializer(serializers.ModelSerializer):
-#
-#     class Meta:
-#         model = Profile
-#         fields = ('id', 'first_name', 'last_name', 'email_address', 'location', 'street_address', 'phone', 'photo')
+        model = Yardsale
+        fields = ('id', 'seller', 'cause', 'name', 'location', 'description', 'sale_end')
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -59,8 +63,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'email_address', 'first_name', 'last_name',
                     'street_address', 'photo', 'location', 'listing_set')
 
-    # def personal_listings(self):
-    #     return Listing.objects.filter(seller__user=self.request.user)
 
 class CreateUserSerializer(serializers.ModelSerializer):
 
@@ -77,8 +79,6 @@ class CreateUserSerializer(serializers.ModelSerializer):
             photo=validated_data['photo'],
             location =validated_data['location'],
             street_address =validated_data['street_address'],
-
-
         )
         user.set_password(validated_data['password'])
         user.save()
