@@ -19,7 +19,7 @@ var HomeComponent = React.createClass({
       <div className="row">
         <header className="head">
           <div className="logo col s12">
-            <h1 className="col s12">YARDSALE</h1>
+            <h1 className="col s12"><span id="cursive">re </span>Purpose</h1>
           </div>
         </header>
         <div className="nav col s12">
