@@ -21,20 +21,28 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ListingSerializer(serializers.ModelSerializer):
     seller = serializers.PrimaryKeyRelatedField(read_only=True)
+    location = serializers.SerializerMethodField()
+
+    def get_location(self, object):
+        return object.seller.location.city
 
     class Meta:
         model = Listing
-        fields = ('id', 'item', 'description', 'photo', 'price', 'seller', 'category')
+        fields = ('id', 'item', 'description', 'photo', 'price', 'seller', 'location', 'category')
 
 
 class SpecialSaleSerializer(serializers.ModelSerializer):
     seller = serializers.PrimaryKeyRelatedField(read_only=True)
+    location = serializers.SerializerMethodField()
+
+    def get_location(self, object):
+        return object.seller.location.city
 
     class Meta:
         model = SpecialSale
         fields = ('id', 'special_sale_name', 'special_sale_category',
         'special_sale_description', 'item', 'description', 'photo', 'price',
-        'seller', 'category')
+        'seller', 'location', 'category')
 
 
 # class ProfileSerializer(serializers.ModelSerializer):

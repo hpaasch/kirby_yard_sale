@@ -46,6 +46,11 @@ class ListingListAPIView(generics.ListCreateAPIView):
         serializer.save(seller=self.request.user)
 
 
+class AllListingListAPIView(generics.ListCreateAPIView):
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer
+
+
 class ListingDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Listing.objects.all()
     serializer_class = ListingSerializer
@@ -57,6 +62,11 @@ class SpecialSaleListAPIView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(seller=self.request.user)
+
+
+class AllSpecialSaleListAPIView(generics.ListCreateAPIView):
+    queryset = SpecialSale.objects.all()
+    serializer_class = SpecialSaleSerializer
 
 
 class SpecialSaleDetailAPIView(generics.RetrieveUpdateDestroyAPIView):

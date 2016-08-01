@@ -9,7 +9,7 @@ from main_app.views import (IndexView, LocationListAPIView,
     LocationDetailAPIView, CategoryListAPIView, CategoryDetailAPIView,
     ListingListAPIView, ListingDetailAPIView, UserRegisterAPIView,
     CurrentUserAPIView, UserListAPIView, UserDetailAPIView, SpecialSaleListAPIView,
-    SpecialSaleDetailAPIView)
+    SpecialSaleDetailAPIView, AllSpecialSaleListAPIView, AllListingListAPIView)
 
 
 urlpatterns = [
@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'api/special/(?P<pk>\d+)/$', SpecialSaleDetailAPIView.as_view(), name='special_sale_detail_api_view'),
     url(r'api/users/$', UserListAPIView.as_view(), name='user_list_api_view'),
     url(r'api/users/(?P<pk>\d+)/$', UserDetailAPIView.as_view(), name='user_detail_api_view'),
-    # url(r'api/profile/$', ProfileListAPIView.as_view(), name='profile_list_api_view'),
-    # url(r'api/profile/(?P<pk>\d+)/$', ProfileDetailAPIView.as_view(), name='profile_detail_api_view'),
+    url(r'api/special/all/$', AllSpecialSaleListAPIView.as_view(), name='all_special_sale_list_api_view'),
+    url(r'api/listings/all/$', AllListingListAPIView.as_view(), name='all_listing_list_api_view'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
