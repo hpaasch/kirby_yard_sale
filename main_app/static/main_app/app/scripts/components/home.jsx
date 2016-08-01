@@ -1,7 +1,7 @@
 var React = require('react');
 var router = require('../router');
 var LocationComponent = require('../components/locations.jsx').LocationComponent;
-var CategoryComponent = require('../components/categories.jsx');
+var CategoryComponent = require('../components/categories.jsx'). CategoryComponent;
 
 var HomeComponent = React.createClass({
   handleSignUp: function(){

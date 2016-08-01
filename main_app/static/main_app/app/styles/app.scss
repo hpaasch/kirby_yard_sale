@@ -339,6 +339,10 @@ div#list2{
   height: 220px;
 }
 
+div.col.s12.m6.l3{
+  padding-right: 10px;
+}
+
 .ydsalebig{
   height: 300px;
 }
@@ -346,6 +350,10 @@ div#list2{
 .imgwrapper3{
   height: 225px;
   overflow: hidden;
+}
+
+div.leftside.col.s12.l6{
+  margin-left: 20px;
 }
 
 .imgwrapper2{
@@ -458,6 +466,15 @@ input:focus {
     font-family: 'Dosis', sans-serif;
   }
 
+  div.ydsalehuge.card-panel{
+    height: 400px;
+  }
+
+  .imgwrapper4{
+    height: 280px;
+    overflow: hidden;
+  }
+
   #submit3{
     background-color: white;
     color: black;
@@ -484,6 +501,10 @@ input:focus {
     display: none;
   }
 
+  div.detail.row{
+    margin-right: 30px;
+  }
+
   div.rightside{
     margin-top: 20px;
   }
@@ -494,7 +515,88 @@ input:focus {
   }
 }
 
-@media (min-width: 601px) and (max-width: 1000px) {
+@media (min-width: 601px) and (max-width: 800px) {
+  .home2{
+    height: 550px;
+  }
+  #submit{
+   background-color: white;
+   color: black;
+   margin-top: 10px;
+   width: 100%;
+   display: inline-block;
+   font-family: 'Dosis', sans-serif;
+  }
+  #submit2{
+    background-color: white;
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+  }
+
+  #submit3{
+    background-color: white;
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Dosis', sans-serif;
+  }
+  section.footer{
+    display: none;
+  }
+
+  .salenav{
+    display: none;
+  }
+
+  div.detail.row{
+    margin-right: 30px;
+  }
+
+  div.rightside{
+    margin-top: 20px;
+  }
+  #submitbtn{
+    background-color: $gray;
+    font-family: 'Dosis', sans-serif;
+    margin-bottom: 20px;
+  }
+  #list2 img{
+    width: 65%;
+  }
+
+  #list,
+  #list1{
+    margin-left: 0px;
+  }
+
+  #submitbtn2{
+    width: 110px;
+    height: 40px;
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  #list2 img{
+    width: 85%;
+  }
+
+  #list,
+  #list1{
+    margin-left: 40px;
+  }
+
+  div.detail.row{
+    margin-right: 30px;
+  }
+
+  #submitbtn2{
+    width: 190px;
+    height: 50px;
+    font-size: 15px;
+  }
   .home2{
     height: 550px;
   }
@@ -540,6 +642,20 @@ input:focus {
 }
 
 @media (min-width: 1001px) and (max-width: 1265px) {
+  #list2 img{
+    width: 85%;
+  }
+
+  #list,
+  #list1{
+    margin-left: 50px;
+  }
+
+  #submitbtn2{
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+  }
   .home2{
     height: 540px;
   }

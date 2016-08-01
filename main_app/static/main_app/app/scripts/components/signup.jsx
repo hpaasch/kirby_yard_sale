@@ -15,6 +15,7 @@ var SignUpComponent = React.createClass({
        'first_name': '',
        'last_name': '',
        'photo': '',
+       'street_address': '',
        'location': '',
        listOfLocations: []
      }
@@ -39,6 +40,7 @@ var SignUpComponent = React.createClass({
     var last_name = this.state.last_name;
     var photo = this.state.photo;
     var location = this.state.location;
+    var street_address = this.state.street_address;
 
 
     var newUser = new User();
@@ -49,7 +51,8 @@ var SignUpComponent = React.createClass({
       'last_name': last_name,
       'photo': photo,
       'username': username,
-      'location': location
+      'location': location,
+      'street_address': street_address
     });
 
     newUser.register().done(function(){
@@ -91,13 +94,19 @@ var SignUpComponent = React.createClass({
       'location': e.target.value
     });
   },
+  handleAddressChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'street_address': e.target.value
+    });
+  },
   render: function(){
 
     var locations = this.state.listOfLocations;
     var self = this;
     var locationList = locations.map(function(location, index){
       return(
-        <option key={index} value={self.state.location}>{location.get('city')}</option>
+        <option key={index} value={location.get('id')}>{location.get('city')}</option>
       );
     });
     return(
@@ -142,7 +151,7 @@ var SignUpComponent = React.createClass({
                     type="text" />
                </div>
                <div className="input-field col s12 col m10 col l6">
-                 <select name="city" onChange={self.handleLocationChange} className="browser-default col s10 offset-s1 col m10 col l6">
+                 <select name="location" onChange={self.handleLocationChange} className="browser-default col s10 offset-s1 col m10 col l6">
                    <option id="location" value="">Choose your city</option>
                    {locationList}
                  </select>
@@ -155,6 +164,15 @@ var SignUpComponent = React.createClass({
                     id="photo"
                     onChange={this.handlePhotoChange}
                     type="file" />
+               </div>
+               <div className="input-field col s12 col m10">
+                  <label htmlFor="street_address">Address</label>
+                  <input
+                    id="street_address"
+                    value={this.state.street_address}
+                    onChange={this.handleAddressChange}
+                    name="street_address"
+                    type="text" />
                </div>
             </div>
             <button id="submitbtn" className="waves-effect waves-light btn" type="submit">Sign Up</button>

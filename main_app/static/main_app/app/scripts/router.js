@@ -18,6 +18,10 @@ var HopeComponent = require('./components/hope.jsx');
 var CreateComponent = require('./components/create.jsx');
 var SpecialCategoryComponent = require('./components/specialcategory.jsx');
 var DetailComponent = require('./components/profile.jsx').DetailComponent;
+var SpecialDetailComponent = require('./components/profile.jsx').SpecialDetailComponent;
+var SpecialListingComponent = require('./components/profile.jsx').SpecialListingComponent;
+
+
 
 
 
@@ -35,7 +39,8 @@ var TheAppRouter = Backbone.Router.extend({
     'createprofile/': 'createprofile',
     'listing/': 'listing',
     'detail/:id/': 'detail',
-    'special/': 'special'
+    'special/:id/': 'special',
+    'speciallisting/': 'speciallisting'
   },
   initialize: function(){
     var csrftoken = csrf.getCookie('csrftoken');
@@ -119,10 +124,17 @@ var TheAppRouter = Backbone.Router.extend({
       document.getElementById('container')
     );
   },
-  special: function(){
+  speciallisting: function(){
     var self = this;
     ReactDOM.render(
-      React.createElement(SpecialCategoryComponent, {router: self}),
+      React.createElement(SpecialListingComponent, {router: self}),
+      document.getElementById('container')
+    );
+  },
+  special: function(id){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(SpecialDetailComponent, {id: id, router: self}),
       document.getElementById('container')
     );
   },

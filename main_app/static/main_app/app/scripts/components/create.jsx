@@ -1,7 +1,7 @@
 var React = require('react');
 var router = require('../router');
 var LocationComponent = require('../components/locations.jsx');
-var CategoryComponent = require('../components/categories.jsx');
+var CategoryComponent2 = require('../components/categories.jsx').CategoryComponent2;
 var Listing = require('../models/listing').Listing;
 var SpecialListing = require('../models/speciallisting').SpecialListing;
 
@@ -28,8 +28,8 @@ var CreateComponent = React.createClass({
       <div className="row">
         <h3 id="title" className="form head white-text card-panel col s12">Create YardSale</h3>
         <h5 className="subtitle">What type of yardsale will you be creating today? </h5>
-        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s10 offset-s1 col l2 offset-l4" onClick={this.handleACause}>For A Cause</button>
-        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s10 offset-s1 col l2 offset-l4" onClick={this.handlePersonal}>Personal</button>
+        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s3 offset-s3 col m2 offset-m4 col l2 offset-l4" onClick={this.handleACause}>For A Cause</button>
+        <button id="submitbtn" type="button" className="waves-effect waves-light btn col s3 col m2 col l2" onClick={this.handlePersonal}>Personal</button>
         <SpecialComponent router={this.props.router} displaySpecialForm={this.state.displaySpecialForm}/>
         <NormalComponent router={this.props.router} displayNormalForm={this.state.displayNormalForm}/>
       </div>
@@ -43,7 +43,8 @@ var NormalComponent = React.createClass({
       'item': '',
        'description': '',
        'price': '',
-       'photo': ''
+       'photo': '',
+       'category': ''
     }
   },
   handleSubmit: function(e){
@@ -53,6 +54,7 @@ var NormalComponent = React.createClass({
     var description = this.state.description;
     var price = this.state.price;
     var photo = this.state.photo;
+    var category = this.state.category;
 
 
     var newItem = new Listing();
@@ -60,7 +62,8 @@ var NormalComponent = React.createClass({
       'item': item,
       'description': description,
       'price': price,
-      'photo': photo
+      'photo': photo,
+      'category': category
     });
     newItem.save();
 
@@ -68,7 +71,7 @@ var NormalComponent = React.createClass({
       'item': '',
        'description': '',
        'price': '',
-       'photo': ''
+       'photo': '',
     });
 
   },
@@ -97,6 +100,12 @@ var NormalComponent = React.createClass({
   },
   handleFinishChange: function(){
     this.props.router.navigate('#profile/', {trigger: true});
+  },
+  handleCategoryChange: function(e){
+    e.preventDefault();
+    this.setState({
+      'category': e.target.value
+    });
   },
   render: function(){
     if(!this.props.displayNormalForm){
@@ -142,8 +151,9 @@ var NormalComponent = React.createClass({
                      onChange={this.handlePhotoChange}
                      type="file" />
                 </div>
-             </div>
-             <button id="add" className="waves-effect waves-light btn">Add Item</button>
+                  <CategoryComponent2 />
+              </div>
+             <button id="add" className="waves-effect waves-light btn">Add This Item</button>
           </form>
           <div className="col s8 offset-s2">
             <button id="finish" onClick={this.handleFinishChange} className="col s6 col l2 waves-effect waves-light btn">Finish</button>
@@ -330,7 +340,7 @@ var SpecialComponent = React.createClass({
                      type="file" />
                 </div>
              </div>
-             <button id="add" className="waves-effect waves-light btn">Add Another Item</button>
+             <button id="add" className="waves-effect waves-light btn">Add This Item</button>
           </form>
           <div className="col s8 offset-s2">
             <button onClick={this.handleFinishChange} id="finish" className="col s6 col l2 waves-effect waves-light btn">Finish</button>
