@@ -14,7 +14,6 @@ var ListingComponent = require('./components/profile.jsx').ListingComponent;
 var YardSaleComponent = require('./components/sale.jsx');
 var SalesComponent = require('./components/sales.jsx');
 var CartComponent = require('./components/cart.jsx');
-var HopeComponent = require('./components/hope.jsx');
 var CreateComponent = require('./components/create.jsx');
 var SpecialCategoryComponent = require('./components/specialcategory.jsx');
 var DetailComponent = require('./components/profile.jsx').DetailComponent;

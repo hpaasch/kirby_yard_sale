@@ -3,6 +3,7 @@ var router = require('../router');
 var LocationComponent = require('../components/locations.jsx');
 var CategoryComponent2 = require('../components/categories.jsx').CategoryComponent2;
 var Listing = require('../models/listing').Listing;
+var YardSale = require('../models/yardsale').YardSale;
 var SpecialListing = require('../models/speciallisting').SpecialListing;
 
 var $ = require('jquery');
@@ -188,7 +189,13 @@ var SpecialComponent = React.createClass({
     var special_sale_name = this.state.special_sale_name;
     var special_sale_category = this.state.special_sale_category;
 
-
+    var newSale = new Yardsale();
+    newSale.set({
+      'special_sale_description': special_sale_description,
+      'special_sale_name': special_sale_name,
+      'special_sale_category': special_sale_category
+    });
+    newSale.save();
 
     var newItem = new SpecialListing();
     newItem.set({
