@@ -6,3 +6,4 @@ db2.sqlite3
 .direnv
 node_modules/
 .envrc
+listing_photos/
