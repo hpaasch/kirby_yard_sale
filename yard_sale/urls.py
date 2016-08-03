@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'api/categories/$', CategoryListAPIView.as_view(), name='category_list_api_view'),
     url(r'api/categories/(?P<pk>\d+)/$', CategoryDetailAPIView.as_view(), name='category_detail_api_view'),
     url(r'api/listings/$', ListingListAPIView.as_view(), name='listing_list_api_view'),
+    # url(r'api/listings/create/(?P<pk>\d+)/$', ListingListAPIView.as_view(), name='listing_list_api_view'),
     url(r'api/listings/(?P<pk>\d+)/$', ListingDetailAPIView.as_view(), name='listing_detail_api_view'),
     # url(r'api/special/$', SpecialSaleListAPIView.as_view(), name='special_sale_list_api_view'),
     # url(r'api/special/(?P<pk>\d+)/$', SpecialSaleDetailAPIView.as_view(), name='special_sale_detail_api_view'),

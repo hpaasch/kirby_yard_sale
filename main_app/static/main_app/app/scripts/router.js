@@ -10,13 +10,14 @@ var LocationComponent = require('./components/locations.jsx');
 var SignUpComponent = require('./components/signup.jsx');
 var LoginComponent = require('./components/login.jsx');
 var ProfileComponent = require('./components/profile.jsx').ProfileComponent;
-var ListingComponent = require('./components/profile.jsx').ListingComponent;
+var ListingComponent = require('./components/listing.jsx').ListingComponent;
 var YardSaleComponent = require('./components/sale.jsx');
 var SalesComponent = require('./components/sales.jsx');
 var CartComponent = require('./components/cart.jsx');
-var CreateComponent = require('./components/create.jsx');
+var CreateComponent = require('./components/create.jsx').CreateComponent;
+var CreateListingComponent = require('./components/create.jsx').CreateListingComponent;
 var SpecialCategoryComponent = require('./components/specialcategory.jsx');
-var DetailComponent = require('./components/profile.jsx').DetailComponent;
+var DetailComponent = require('./components/detail.jsx').DetailComponent;
 var SpecialDetailComponent = require('./components/profile.jsx').SpecialDetailComponent;
 var SpecialListingComponent = require('./components/profile.jsx').SpecialListingComponent;
 var SearchLocation = require('./components/search.jsx').SearchLocation;
@@ -36,12 +37,13 @@ var TheAppRouter = Backbone.Router.extend({
     'yardsale/': 'yardsale',
     'sales/': 'sales',
     'cart/': 'cart',
-    'createprofile/': 'createprofile',
-    'listing/': 'listing',
+    'createsale/': 'createsale',
+    'listing/:id/': 'listing',
     'detail/:id/': 'detail',
     'special/:id/': 'special',
     'speciallisting/': 'speciallisting',
-    'searchlocation/': 'searchlocation'
+    'searchlocation/': 'searchlocation',
+    'itemsadd/:id': 'itemsadd'
   },
   initialize: function(){
     var csrftoken = csrf.getCookie('csrftoken');
@@ -86,10 +88,10 @@ var TheAppRouter = Backbone.Router.extend({
       document.getElementById('container')
     );
   },
-  profile: function(){
+  profile: function(id){
     var self = this;
     ReactDOM.render(
-      React.createElement(ProfileComponent, {router: self}),
+      React.createElement(ProfileComponent, {id: id, router: self}),
       document.getElementById('container')
     );
   },
@@ -111,17 +113,17 @@ var TheAppRouter = Backbone.Router.extend({
       document.getElementById('container')
     );
   },
-  createprofile: function(){
+  createsale: function(){
     var self = this;
     ReactDOM.render(
       React.createElement(CreateComponent, {router: self}),
       document.getElementById('container')
     );
   },
-  listing: function(){
+  listing: function(id){
     var self = this;
     ReactDOM.render(
-      React.createElement(ListingComponent, {router: self}),
+      React.createElement(ListingComponent, {id: id, router: self}),
       document.getElementById('container')
     );
   },
@@ -150,6 +152,13 @@ var TheAppRouter = Backbone.Router.extend({
     var self = this;
     ReactDOM.render(
       React.createElement(SearchLocation, {id: id, router: self}),
+      document.getElementById('container')
+    );
+  },
+  itemsadd: function(id){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(CreateListingComponent, {id: id, router: self}),
       document.getElementById('container')
     );
   }

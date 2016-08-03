@@ -20,7 +20,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ListingSerializer(serializers.ModelSerializer):
-    # seller = serializers.PrimaryKeyRelatedField(read_only=True)
+    # yardsale = serializers.PrimaryKeyRelatedField(read_only=True)
     # location = serializers.SerializerMethodField()
     #
     # def get_location(self, object):
@@ -46,6 +46,7 @@ class ListingSerializer(serializers.ModelSerializer):
 
 
 class YardsaleSerializer(serializers.ModelSerializer):
+    seller = serializers.PrimaryKeyRelatedField(read_only=True)
     location = serializers.SerializerMethodField()
 
     def get_location(self, object):
@@ -61,7 +62,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'email_address', 'first_name', 'last_name',
-                    'street_address', 'photo', 'location', 'listing_set')
+                    'street_address', 'photo', 'location', 'yardsale_set')  # 'yardsale_set'
 
 
 class CreateUserSerializer(serializers.ModelSerializer):
